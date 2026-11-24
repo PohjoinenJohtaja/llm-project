@@ -1,0 +1,31 @@
+[
+  {
+    "mode": "GPU default",
+    "status": 200,
+    "seconds": 15.4,
+    "dim": 1024,
+    "finite": true,
+    "norm": 1.0000000417774462
+  },
+  {
+    "mode": "CPU",
+    "status": 200,
+    "seconds": 5.0,
+    "dim": 1024,
+    "finite": true,
+    "norm": 1.000000182452942
+  },
+  {
+    "mode": "GPU corpus",
+    "status": 500,
+    "seconds": 5.1,
+    "error": "{\"error\":\"failed to encode response: json: unsupported value: NaN\"}"
+  },
+  {
+    "mode": "CPU corpus",
+    "status": 200,
+    "seconds": 273.6,
+    "vectors": 92,
+    "finite": true
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "code_commit": "00002631b4c8f2b136d2103ce43fa1ed6a0363db",
+  "ollama": "0.15.4",
+  "python": "3.11.18",
+  "gpu": "Tesla T4",
+  "embedding_model": "bge-m3-cpu",
+  "base_embedding_model": "bge-m3",
+  "embedding_device": "CPU",
+  "generation_device": "GPU",
+  "baseline_exit": 0,
+  "questions": 24,
+  "accuracy": 0.5,
+  "corpus_vectors_reused_from_cpu_diagnostic": 92,
+  "pdf_report_created": false
+}

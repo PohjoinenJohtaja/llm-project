@@ -1,0 +1,4 @@
+uv run python -m assistant eval --mode baseline
+Ошибка: сервис модели ответил кодом 500: {"error":{"message":"failed to encode response: json: unsupported value: NaN","type":"api_error","param":null,"code":null}}
+
+make: *** [Makefile:34: eval] Error 1
