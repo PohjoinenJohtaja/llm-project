@@ -1,0 +1,63 @@
+{
+  "code_commit": "5f26d8f5cf7ba59ce366a613f60f25c9fa22d451",
+  "python": "Python 3.11.17",
+  "ollama": {
+    "version": "0.15.4"
+  },
+  "gpu": "Tesla T4",
+  "llm_model": "qwen3:4b-instruct-2507-q4_K_M",
+  "embed_model": "bge-m3-cpu",
+  "cache_files": 993,
+  "validated_files": {
+    "graph.json": "4e4d9ff91fa6260f792fcc3484e38c75c160161b837e04d5b55d8bdaa50d923f",
+    "communities.json": "ff441cb159911ebf5172e5d80611dd72e7243ea1037d8787560903350ec97daa",
+    "index_stats.json": "786dd04ad52eff20113abcc8ac35ccdb879e4b71021540022bf1c7880f86aba9",
+    "eval_baseline.json": "2a23bea8bf6051ee1eec3a1a7f71d7fc1069621220ee8a005f739468048b8305",
+    "eval_extraction.json": "2886dcc2aa7ec0f61963ab8bb654cbc828bc6aa467b591a3a71606fe19227a94",
+    "eval_local.json": "f9136f548f5e95bf8d9b1e014b1c9354b28a1e1498a854c833398a01c3a9a6bf",
+    "eval_global.json": "e1d6248aeccd4eedeb8d6775ab0a7a3890722af7a43504666556d4401892dcdf",
+    "eval_agent.json": "b5d7d48858e2043606445f52588efed166669d0fcf9c948d27954aa434319949"
+  },
+  "tests": "149 passed",
+  "lint": "51 errors in previously saved baseline notebook; deferred",
+  "run_status": {
+    "code_commit": "5f26d8f5cf7ba59ce366a613f60f25c9fa22d451",
+    "stages": [
+      {
+        "stage": "index",
+        "started": 1795598248.3394585,
+        "state": "completed",
+        "exit_code": 0,
+        "seconds": 1225.5
+      },
+      {
+        "stage": "extraction",
+        "started": 1795599473.8622801,
+        "state": "completed",
+        "exit_code": 0,
+        "seconds": 0.5
+      },
+      {
+        "stage": "local",
+        "started": 1795599474.3148682,
+        "state": "completed",
+        "exit_code": 0,
+        "seconds": 19.4
+      },
+      {
+        "stage": "global",
+        "started": 1795599493.68825,
+        "state": "completed",
+        "exit_code": 0,
+        "seconds": 526.3
+      },
+      {
+        "stage": "agent",
+        "started": 1795600019.9478037,
+        "state": "completed",
+        "exit_code": 0,
+        "seconds": 160.2
+      }
+    ]
+  }
+}
