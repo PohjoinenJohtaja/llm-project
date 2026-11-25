@@ -1,0 +1,169 @@
+{
+  "code_commit": "40794929263d2e35dd9e146d51f5c0f9a5c761f1",
+  "environment": "GitHub Codespaces Docker; MTU 1400",
+  "checks": [
+    {
+      "name": "docker-version",
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{.Server.Version}}"
+      ],
+      "exit_code": 0,
+      "seconds": 0.04,
+      "output": "29.9.2-2\n"
+    },
+    {
+      "name": "compose-version",
+      "command": [
+        "docker",
+        "compose",
+        "version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.06,
+      "output": "Docker Compose version v5.6.1\n"
+    },
+    {
+      "name": "services",
+      "command": [
+        "docker",
+        "compose",
+        "ps",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.11,
+      "output": "{\"Command\":\"\\\"uvicorn assistant.i…\\\"\",\"CreatedAt\":\"2026-11-25 11:25:30 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"\",\"ID\":\"de1b09cef390\",\"Image\":\"llm-project-app\",\"Labels\":\"com.docker.compose.depends_on=erp:service_healthy:false,com.docker.compose.image=sha256:45f645d961c5764a140921d16f6b29eab40732e3de4104279d432cab5051ea4b,com.docker.compose.oneoff=False,com.docker.compose.project=llm-project,com.docker.compose.project.working_dir=/workspaces/llm-project,com.docker.compose.version=5.6.1,com.docker.compose.config-hash=27f421ff4cf134907b5e6824ef3607ca600595e60fa233b2f5c393bc792d2165,com.docker.compose.container-number=1,com.docker.compose.project.config_files=/workspaces/llm-project/docker-compose.yml,com.docker.compose.service=app\",\"LocalVolumes\":\"0\",\"Mounts\":\"/workspaces/ll…,/workspaces/ll…,/workspaces/ll…,/workspaces/ll…\",\"Name\":\"llm-project-app-1\",\"Names\":\"llm-project-app-1\",\"Networks\":\"llm-project_default\",\"Ports\":\"0.0.0.0:8000-\\u003e8000/tcp, [::]:8000-\\u003e8000/tcp\",\"Project\":\"llm-project\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":8000,\"PublishedPort\":8000,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":8000,\"PublishedPort\":8000,\"Protocol\":\"tcp\"}],\"RunningFor\":\"About a minute ago\",\"Service\":\"app\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up About a minute\"}\n{\"Command\":\"\\\"uvicorn erp.app:app…\\\"\",\"CreatedAt\":\"2026-11-25 11:25:24 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"healthy\",\"ID\":\"04d77b26b0a7\",\"Image\":\"llm-project-erp\",\"Labels\":\"com.docker.compose.project.config_files=/workspaces/llm-project/docker-compose.yml,com.docker.compose.version=5.6.1,com.docker.compose.config-hash=0021f117d025ab65def9c3cdd47568e5d660c62e1468244191303f94dd64a8ce,com.docker.compose.project.working_dir=/workspaces/llm-project,com.docker.compose.service=erp,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:133dd434d0bedcdcc97339b5f8035f522682a075df4bdc03308a8c957b2a05ff,com.docker.compose.oneoff=False,com.docker.compose.project=llm-project\",\"LocalVolumes\":\"0\",\"Mounts\":\"\",\"Name\":\"llm-project-erp-1\",\"Names\":\"llm-project-erp-1\",\"Networks\":\"llm-project_default\",\"Ports\":\"0.0.0.0:8100-\\u003e8100/tcp, [::]:8100-\\u003e8100/tcp\",\"Project\":\"llm-project\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":8100,\"PublishedPort\":8100,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":8100,\"PublishedPort\":8100,\"Protocol\":\"tcp\"}],\"RunningFor\":\"About a minute ago\",\"Service\":\"erp\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up About a minute (healthy)\"}\n{\"Command\":\"\\\"/bin/ollama serve\\\"\",\"CreatedAt\":\"2026-11-25 11:25:42 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"\",\"ID\":\"58595e91c6be\",\"Image\":\"ollama/ollama:0.15.4\",\"Labels\":\"com.docker.compose.image=sha256:9f61ba22dc94dfea0b633920111da271d2ad535e353429747f5486fc91636f38,com.docker.compose.project=llm-project,com.docker.compose.project.config_files=/workspaces/llm-project/docker-compose.yml,com.docker.compose.project.working_dir=/workspaces/llm-project,com.docker.compose.version=5.6.1,org.opencontainers.image.ref.name=ubuntu,com.docker.compose.config-hash=3000fd25b1e06b05b8ef07aeb82540ce5b7c1dbb7d53f5838fc08c2f40bce41d,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.oneoff=False,com.docker.compose.service=llm,org.opencontainers.image.version=24.04\",\"LocalVolumes\":\"1\",\"Mounts\":\"llm-project_ol…\",\"Name\":\"llm-project-llm-1\",\"Names\":\"llm-project-llm-1\",\"Networks\":\"llm-project_default\",\"Ports\":\"0.0.0.0:11434-\\u003e11434/tcp, [::]:11434-\\u003e11434/tcp\",\"Project\":\"llm-project\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":11434,\"PublishedPort\":11434,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":11434,\"PublishedPort\":11434,\"Protocol\":\"tcp\"}],\"RunningFor\":\"About a minute ago\",\"Service\":\"llm\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up About a minute\"}\n"
+    },
+    {
+      "name": "embed-modelfile",
+      "command": [
+        "docker",
+        "compose",
+        "exec",
+        "-T",
+        "llm",
+        "sh",
+        "-c",
+        "cat > /tmp/Modelfile.cpu"
+      ],
+      "exit_code": 0,
+      "seconds": 0.14,
+      "output": ""
+    },
+    {
+      "name": "embed-model",
+      "command": [
+        "docker",
+        "compose",
+        "exec",
+        "-T",
+        "llm",
+        "ollama",
+        "create",
+        "bge-m3-cpu",
+        "-f",
+        "/tmp/Modelfile.cpu"
+      ],
+      "exit_code": 0,
+      "seconds": 0.23,
+      "output": "\u001b[?2026h\u001b[?25l\u001b[1Ggathering model components \u001b[K\nusing existing layer sha256:daec91ffb5dd0c27411bd71f29932917c49cf529a641d0168496c3a501e3062c \u001b[K\nusing existing layer sha256:a406579cd136771c705c521db86ca7d60a6f3de7c9b5460e6193a2df27861bde \u001b[K\nusing existing layer sha256:70701d1fff6d0ee0d7c41bb24fcc0021e5ad086027fe9dceefb89347d2d2f7bf \u001b[K\nwriting manifest \u001b[K\nsuccess \u001b[K\u001b[?25h\u001b[?2026l\n"
+    },
+    {
+      "name": "tests",
+      "command": [
+        "make",
+        "test",
+        "ARGS=tests erp/tests src/assistant"
+      ],
+      "exit_code": 0,
+      "seconds": 4.31,
+      "output": "docker compose run --rm app pytest -q tests erp/tests src/assistant\n........................................................................ [ 43%]\n........................................................................ [ 87%]\n....................                                                     [100%]\n164 passed in 1.87s\n Container llm-project-erp-1 Running \n Container llm-project-erp-1 Waiting \n Container llm-project-erp-1 Healthy \n Container llm-project-app-run-c588bfd4a7d3 Creating \n Container llm-project-app-run-c588bfd4a7d3 Created \n"
+    },
+    {
+      "name": "lint",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "exit_code": 0,
+      "seconds": 1.22,
+      "output": "docker compose run --rm app ruff check .\nAll checks passed!\n Container llm-project-erp-1 Running \n Container llm-project-erp-1 Waiting \n Container llm-project-erp-1 Healthy \n Container llm-project-app-run-afdc94fb32d7 Creating \n Container llm-project-app-run-afdc94fb32d7 Created \n"
+    },
+    {
+      "name": "index-cached",
+      "command": [
+        "make",
+        "index"
+      ],
+      "exit_code": 0,
+      "seconds": 2.55,
+      "output": "docker compose run --rm app python -m assistant index\nизвлечение 1/92: bulletin_SB-2025-01.md#0\nизвлечение 2/92: bulletin_SB-2025-02.md#0\nизвлечение 3/92: bulletin_SB-2025-03.md#0\nизвлечение 4/92: bulletin_SB-2025-04.md#0\nизвлечение 5/92: bulletin_SB-2025-05.md#0\nизвлечение 6/92: bulletin_SB-2025-06.md#0\nизвлечение 7/92: bulletin_SB-2025-07.md#0\nизвлечение 8/92: bulletin_SB-2025-08.md#0\nизвлечение 9/92: bulletin_SB-2025-09.md#0\nизвлечение 10/92: bulletin_SB-2025-10.md#0\nизвлечение 11/92: manual_AR-210.md#0\nизвлечение 12/92: manual_AR-210.md#1\nизвлечение 13/92: manual_AR-220.md#0\nизвлечение 14/92: manual_AR-220.md#1\nизвлечение 15/92: manual_AR-310.md#0\nизвлечение 16/92: manual_AR-310.md#1\nизвлечение 17/92: manual_AR-320.md#0\nизвлечение 18/92: manual_AR-320.md#1\nизвлечение 19/92: manual_BZ-110.md#0\nизвлечение 20/92: manual_BZ-110.md#1\nизвлечение 21/92: manual_BZ-120.md#0\nизвлечение 22/92: manual_BZ-120.md#1\nизвлечение 23/92: manual_BZ-210.md#0\nизвлечение 24/92: manual_BZ-210.md#1\nизвлечение 25/92: manual_BZ-220.md#0\nизвлечение 26/92: manual_BZ-220.md#1\nизвлечение 27/92: manual_GS-410.md#0\nизвлечение 28/92: manual_GS-410.md#1\nизвлечение 29/92: manual_GS-420.md#0\nизвлечение 30/92: manual_GS-420.md#1\nизвлечение 31/92: manual_GS-510.md#0\nизвлечение 32/92: manual_GS-510.md#1\nизвлечение 33/92: manual_GS-520.md#0\nизвлечение 34/92: manual_GS-520.md#1\nизвлечение 35/92: procedure_SP-101.md#0\nизвлечение 36/92: procedure_SP-102.md#0\nизвлечение 37/92: procedure_SP-103.md#0\nизвлечение 38/92: procedure_SP-104.md#0\nизвлечение 39/92: procedure_SP-105.md#0\nизвлечение 40/92: procedure_SP-106.md#0\nизвлечение 41/92: procedure_SP-107.md#0\nизвлечение 42/92: procedure_SP-108.md#0\nизвлечение 43/92: procedure_SP-109.md#0\nизвлечение 44/92: procedure_SP-110.md#0\nизвлечение 45/92: procedure_SP-111.md#0\nизвлечение 46/92: procedure_SP-112.md#0\nизвлечение 47/92: procedure_SP-113.md#0\nизвлечение 48/92: procedure_SP-114.md#0\nизвлечение 49/92: procedure_SP-115.md#0\nизвлечение 50/92: procedure_SP-116.md#0\nизвлечение 51/92: procedure_SP-117.md#0\nизвлечение 52/92: procedure_SP-118.md#0\nизвлечение 53/92: report_R-2025-001.md#0\nизвлечение 54/92: report_R-2025-002.md#0\nизвлечение 55/92: report_R-2025-003.md#0\nизвлечение 56/92: report_R-2025-004.md#0\nизвлечение 57/92: report_R-2025-005.md#0\nизвлечение 58/92: report_R-2025-006.md#0\nизвлечение 59/92: report_R-2025-007.md#0\nизвлечение 60/92: report_R-2025-008.md#0\nизвлечение 61/92: report_R-2025-009.md#0\nизвлечение 62/92: report_R-2025-010.md#0\nизвлечение 63/92: report_R-2025-011.md#0\nизвлечение 64/92: report_R-2025-012.md#0\nизвлечение 65/92: report_R-2025-013.md#0\nизвлечение 66/92: report_R-2025-014.md#0\nизвлечение 67/92: report_R-2025-015.md#0\nизвлечение 68/92: report_R-2025-016.md#0\nизвлечение 69/92: report_R-2025-017.md#0\nизвлечение 70/92: report_R-2025-018.md#0\nизвлечение 71/92: report_R-2025-019.md#0\nизвлечение 72/92: report_R-2025-020.md#0\nизвлечение 73/92: report_R-2025-021.md#0\nизвлечение 74/92: report_R-2025-022.md#0\nизвлечение 75/92: report_R-2025-023.md#0\nизвлечение 76/92: report_R-2025-024.md#0\nизвлечение 77/92: report_R-2025-025.md#0\nизвлечение 78/92: report_R-2025-026.md#0\nизвлечение 79/92: report_R-2025-027.md#0\nизвлечение 80/92: report_R-2025-028.md#0\nизвлечение 81/92: report_R-2025-029.md#0\nизвлечение 82/92: report_R-2025-030.md#0\nизвлечение 83/92: report_R-2025-031.md#0\nизвлечение 84/92: report_R-2025-032.md#0\nизвлечение 85/92: report_R-2025-033.md#0\nизвлечение 86/92: report_R-2025-034.md#0\nизвлечение 87/92: report_R-2025-035.md#0\nизвлечение 88/92: report_R-2025-036.md#0\nизвлечение 89/92: report_R-2025-037.md#0\nизвлечение 90/92: report_R-2025-038.md#0\nизвлечение 91/92: report_R-2025-039.md#0\nизвлечение 92/92: report_R-2025-040.md#0\nсводка сообщества 0: узлов 18\nсводка сообщества 1: узлов 14\nсводка сообщества 2: узлов 14\nсводка сообщества 3: узлов 20\nсводка сообщества 4: узлов 13\nсводка сообщества 5: узлов 9\nсводка сообщества 6: узлов 17\nсводка сообщества 7: узлов 13\nиндекс готов: {\"chunks\": 92, \"nodes\": 118, \"edges\": 269, \"communities\": 8, \"dropped\": 74, \"conflicts\": 0, \"llm\": {\"calls\": 138, \"cache_hits\": 138, \"prompt_tokens\": 172764, \"completion_tokens\": 48278}}\n Container llm-project-erp-1 Running \n Container llm-project-erp-1 Waiting \n Container llm-project-erp-1 Healthy \n Container llm-project-app-run-8fa1d8e431f6 Creating \n Container llm-project-app-run-8fa1d8e431f6 Created \n"
+    },
+    {
+      "name": "eval-all-cached",
+      "command": [
+        "make",
+        "eval-all"
+      ],
+      "exit_code": 0,
+      "seconds": 6.56,
+      "output": "docker compose run --rm app sh -c 'for mode in baseline local global agent; do python -m assistant eval --mode $mode || exit 1; done'\nbaseline: верных ответов 0.50 (local 1.00, multihop 0.57, global 0.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 1.0\nlocal: верных ответов 0.46 (local 0.80, multihop 0.43, global 0.25, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 0.9\nglobal: верных ответов 0.54 (local 0.80, multihop 0.29, global 1.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 7.7\nagent: верных ответов 0.71 (local 0.60, multihop 0.43, global 0.75, tool 1.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 5.1\n Container llm-project-erp-1 Running \n Container llm-project-erp-1 Waiting \n Container llm-project-erp-1 Healthy \n Container llm-project-app-run-f91377a2f56f Creating \n Container llm-project-app-run-f91377a2f56f Created \n"
+    },
+    {
+      "name": "extraction-cached",
+      "command": [
+        "make",
+        "eval-extraction"
+      ],
+      "exit_code": 0,
+      "seconds": 2.63,
+      "output": "docker compose run --rm app python -m assistant eval-extraction\nизвлечение: связи Precision 0.97, Recall 0.96, отброшено проверками 7\n Container llm-project-erp-1 Running \n Container llm-project-erp-1 Waiting \n Container llm-project-erp-1 Healthy \n Container llm-project-app-run-375fcc2f5dc8 Creating \n Container llm-project-app-run-375fcc2f5dc8 Created \n"
+    },
+    {
+      "name": "live-network-and-models",
+      "command": [
+        "docker",
+        "compose",
+        "exec",
+        "-T",
+        "app",
+        "python",
+        "-c",
+        "import httpx,math,tempfile,json\nfrom pathlib import Path\nfrom assistant.infra.config import Settings,make_llm\nfrom dataclasses import replace\ns=Settings.from_env()\nprint('ERP',httpx.get(s.erp_url+'/health').json())\nprint('MODEL_SERVER',httpx.get(s.llm_base_url.removesuffix('/v1')+'/api/version').json())\nwith tempfile.TemporaryDirectory() as directory:\n    llm=make_llm(replace(s,artifacts_dir=Path(directory)))\n    response=llm.chat([{'role':'user','content':'Docker connectivity check. Reply only OK.'}],max_tokens=8)\n    assert response.content.strip()\n    vectors=llm.embed(['Docker network connectivity check.'])\n    assert len(vectors)==1 and len(vectors[0])==1024 and all(math.isfinite(v) for v in vectors[0])\n    print(json.dumps({'fresh_reply':response.content,'embedding_dimensions':len(vectors[0]),'llm_stats':llm.stats.as_dict()}))\n"
+      ],
+      "exit_code": 0,
+      "seconds": 248.76,
+      "output": "ERP {'status': 'ok'}\nMODEL_SERVER {'version': '0.15.4'}\n{\"fresh_reply\": \"OK\", \"embedding_dimensions\": 1024, \"llm_stats\": {\"calls\": 1, \"cache_hits\": 0, \"prompt_tokens\": 17, \"completion_tokens\": 2}}\n"
+    }
+  ],
+  "state": "completed",
+  "same_results": {
+    "graph.json": true,
+    "communities.json": true,
+    "eval_baseline.json": true,
+    "eval_extraction.json": true,
+    "eval_local.json": true,
+    "eval_global.json": true,
+    "eval_agent.json": true,
+    "index_stats_except_cache_hits": true
+  },
+  "scope": "Full tests/lint and cached index/evaluation reproduction; separate uncached chat and embedding smoke. Not a fresh full benchmark.",
+  "docker_index_stats": {
+    "chunks": 92,
+    "nodes": 118,
+    "edges": 269,
+    "communities": 8,
+    "dropped": 74,
+    "conflicts": 0,
+    "llm": {
+      "calls": 138,
+      "cache_hits": 138,
+      "prompt_tokens": 172764,
+      "completion_tokens": 48278
+    }
+  }
+}

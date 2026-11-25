@@ -1,0 +1,78 @@
+docker compose up -d --build app erp
+ Image llm-project-erp Building
+ Image llm-project-app Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 901B done
+#1 DONE 0.0s
+
+#2 [erp internal] load build definition from Dockerfile
+#2 transferring dockerfile: 573B done
+#2 DONE 0.0s
+
+#3 [erp internal] load metadata for docker.io/library/python:3.11-slim
+#3 ...
+
+#4 [auth] library/python:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [erp internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 2.1s
+
+#5 [app internal] load .dockerignore
+#5 transferring context: 104B done
+#5 DONE 0.0s
+
+#6 [erp 1/7] FROM docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c
+#6 resolve docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c 0.0s done
+#6 DONE 0.0s
+
+#7 [erp internal] load build context
+#7 transferring context: 573.52kB 0.2s done
+#7 DONE 0.2s
+
+#8 [erp 4/7] COPY pyproject.toml uv.lock ./
+#8 CACHED
+
+#9 [erp 5/7] RUN uv sync --frozen --no-install-project
+#9 CACHED
+
+#10 [erp 6/7] COPY . .
+#10 CACHED
+
+#11 [erp 2/7] WORKDIR /app
+#11 CACHED
+
+#12 [erp 3/7] RUN pip install --no-cache-dir uv==0.10.8
+#12 CACHED
+
+#13 [erp 7/7] RUN uv sync --frozen
+#13 CACHED
+
+#14 [erp] exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:133dd434d0bedcdcc97339b5f8035f522682a075df4bdc03308a8c957b2a05ff 0.0s done
+#14 exporting config sha256:b5cdf4dc6a1bbd5a2cc2741868334198c34f0fba0d91be2a90f40892c5f10af9 0.0s done
+#14 exporting attestation manifest sha256:629c7427396896583d75ebfd6621122a0d28dc5656f2c5c3be15688c2ba0c0da 0.0s done
+#14 exporting manifest list sha256:5cb494b16f205eccceeda755b4daa13e18a8771daa82f48815d004bac65c8b81 0.0s done
+#14 naming to docker.io/library/llm-project-erp:latest done
+#14 unpacking to docker.io/library/llm-project-erp:latest 0.0s done
+#14 ERROR: failed to extract layer sha256:54ae9782e24f4abba5eebc5cc388f983b590abb011b69f20e0e592240bb7a698: failed to get reader from content store: content digest sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861: not found
+
+#15 [app] exporting to image
+#15 exporting layers done
+#15 exporting manifest sha256:45f645d961c5764a140921d16f6b29eab40732e3de4104279d432cab5051ea4b 0.0s done
+#15 exporting config sha256:6ab003bfd8e364683ab4107e94b3cff03373aa74749c03bffbae1ba17c0e310b 0.0s done
+#15 exporting attestation manifest sha256:8547db3750eb61d80638bca07043c5c56648e93e33b38ad68a96f7f80347ab83 0.0s done
+#15 exporting manifest list sha256:a1d05b342b5d4a8871f59dd3440f36692b55523df6294534eb2cb98ea9b4aee8 0.0s done
+#15 naming to docker.io/library/llm-project-app:latest done
+#15 unpacking to docker.io/library/llm-project-app:latest 0.0s done
+#15 ERROR: failed to extract layer sha256:54ae9782e24f4abba5eebc5cc388f983b590abb011b69f20e0e592240bb7a698: failed to get reader from content store: content digest sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861: not found
+------
+ > [app] exporting to image:
+------
+------
+ > [erp] exporting to image:
+------
+target erp: failed to solve: failed to extract layer sha256:54ae9782e24f4abba5eebc5cc388f983b590abb011b69f20e0e592240bb7a698: failed to get reader from content store: content digest sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861: not found
+
+make: *** [Makefile:18: up] Error 1

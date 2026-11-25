@@ -1,0 +1,51 @@
+ Image llm-project-erp Building
+ Image llm-project-app Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 989B done
+#1 DONE 0.0s
+
+#2 [erp internal] load build definition from Dockerfile
+#2 transferring dockerfile: 573B done
+#2 transferring dockerfile: 573B done
+#2 DONE 0.0s
+
+#3 [erp internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 0.7s
+
+#4 [app internal] load .dockerignore
+#4 transferring context: 104B done
+#4 DONE 0.0s
+
+#5 [erp 1/7] FROM docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c
+#5 resolve docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c 0.0s done
+#5 DONE 0.0s
+
+#6 [app 2/7] WORKDIR /app
+#6 CACHED
+
+#7 [erp 3/7] RUN pip install --no-cache-dir uv==0.10.8
+#7 ERROR: failed to prepare e69qfqofealnse7b396s9oypb as tt53k5t3dsd7my67sdzjjqd6s: parent snapshot e69qfqofealnse7b396s9oypb does not exist: not found
+
+#8 [erp internal] load build context
+#8 transferring context: 8.74kB 0.0s done
+#8 DONE 0.0s
+------
+ > [erp 3/7] RUN pip install --no-cache-dir uv==0.10.8:
+------
+Dockerfile:6
+
+--------------------
+
+   4 |     WORKDIR /app
+
+   5 |
+
+   6 | >>> RUN pip install --no-cache-dir uv==0.10.8
+
+   7 |
+
+   8 |     # Зависимости ставятся отдельным слоем: он пересобирается, только когда меняется uv.lock.
+
+--------------------
+
+target erp: failed to solve: failed to prepare e69qfqofealnse7b396s9oypb as tt53k5t3dsd7my67sdzjjqd6s: parent snapshot e69qfqofealnse7b396s9oypb does not exist: not found

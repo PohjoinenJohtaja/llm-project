@@ -1,0 +1,89 @@
+docker-version 0 29.9.2-2
+
+compose-version 0 Docker Compose version v5.6.1
+
+services 0
+{"Command":"\"/bin/ollama serve\"","CreatedAt":"2026-11-25 11:25:42 +0000 UTC","Engine":"","ExitCode":0,"Health":"","ID":"58595e91c6be","Image":"ollama/ollama:0.15.4","Labels":"com.docker.compose.image=sha256:9f61ba22dc94dfea0b633920111da271d2ad535e353429747f5486fc91636f38,com.docker.compose.project=llm-project,com.docker.compose.project.config_files=/workspaces/llm-project/docker-compose.yml,com.docker.compose.project.working_dir=/workspaces/llm-project,com.docker.compose.version=5.6.1,org.opencontainers.image.ref.name=ubuntu,com.docker.compose.config-hash=3000fd25b1e06b05b8ef07aeb82540ce5b7c1dbb7d53f5838fc08c2f40bce41d,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.oneoff=False,com.docker.compose.service=llm,org.opencontainers.image.version=24.04","LocalVolumes":"1","Mounts":"llm-project_ol…","Name":"llm-project-llm-1","Names":"llm-project-llm-1","Networks":"llm-project_default","Ports":"0.0.0.0:11434-\u003e11434/tcp, [::]:11434-\u003e11434/tcp","Project":"llm-project","Publishers":[{"URL":"0.0.0.0","TargetPort":11434,"PublishedPort":11434,"Protocol":"tcp"},{"URL":"::","TargetPort":11434,"PublishedPort":11434,"Protocol":"tcp"}],"RunningFor":"About a minute ago","Service":"llm","Size":"0B","State":"running","Status":"Up About a minute"}
+
+embed-modelfile 0
+embed-model 0 [?2026h[?25l[1Ggathering model components [K
+using existing layer sha256:daec91ffb5dd0c27411bd71f29932917c49cf529a641d0168496c3a501e3062c [K
+using existing layer sha256:a406579cd136771c705c521db86ca7d60a6f3de7c9b5460e6193a2df27861bde [K
+using existing layer sha256:70701d1fff6d0ee0d7c41bb24fcc0021e5ad086027fe9dceefb89347d2d2f7bf [K
+writing manifest [K
+success [K[?25h[?2026l
+
+tests 0 docker compose run --rm app pytest -q tests erp/tests src/assistant
+........................................................................ [ 43%]
+........................................................................ [ 87%]
+....................                                                     [100%]
+164 passed in 1.87s
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-c588bfd4a7d3 Creating
+ Container llm-project-app-run-c588bfd4a7d3 Created
+
+lint 0 docker compose run --rm app ruff check .
+All checks passed!
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-afdc94fb32d7 Creating
+ Container llm-project-app-run-afdc94fb32d7 Created
+
+index-cached 0  report_R-2025-025.md#0
+извлечение 78/92: report_R-2025-026.md#0
+извлечение 79/92: report_R-2025-027.md#0
+извлечение 80/92: report_R-2025-028.md#0
+извлечение 81/92: report_R-2025-029.md#0
+извлечение 82/92: report_R-2025-030.md#0
+извлечение 83/92: report_R-2025-031.md#0
+извлечение 84/92: report_R-2025-032.md#0
+извлечение 85/92: report_R-2025-033.md#0
+извлечение 86/92: report_R-2025-034.md#0
+извлечение 87/92: report_R-2025-035.md#0
+извлечение 88/92: report_R-2025-036.md#0
+извлечение 89/92: report_R-2025-037.md#0
+извлечение 90/92: report_R-2025-038.md#0
+извлечение 91/92: report_R-2025-039.md#0
+извлечение 92/92: report_R-2025-040.md#0
+сводка сообщества 0: узлов 18
+сводка сообщества 1: узлов 14
+сводка сообщества 2: узлов 14
+сводка сообщества 3: узлов 20
+сводка сообщества 4: узлов 13
+сводка сообщества 5: узлов 9
+сводка сообщества 6: узлов 17
+сводка сообщества 7: узлов 13
+индекс готов: {"chunks": 92, "nodes": 118, "edges": 269, "communities": 8, "dropped": 74, "conflicts": 0, "llm": {"calls": 138, "cache_hits": 138, "prompt_tokens": 172764, "completion_tokens": 48278}}
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-8fa1d8e431f6 Creating
+ Container llm-project-app-run-8fa1d8e431f6 Created
+
+eval-all-cached 0 docker compose run --rm app sh -c 'for mode in baseline local global agent; do python -m assistant eval --mode $mode || exit 1; done'
+baseline: верных ответов 0.50 (local 1.00, multihop 0.57, global 0.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 1.0
+local: верных ответов 0.46 (local 0.80, multihop 0.43, global 0.25, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 0.9
+global: верных ответов 0.54 (local 0.80, multihop 0.29, global 1.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 7.7
+agent: верных ответов 0.71 (local 0.60, multihop 0.43, global 0.75, tool 1.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 5.1
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-f91377a2f56f Creating
+ Container llm-project-app-run-f91377a2f56f Created
+
+extraction-cached 0 docker compose run --rm app python -m assistant eval-extraction
+извлечение: связи Precision 0.97, Recall 0.96, отброшено проверками 7
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-375fcc2f5dc8 Creating
+ Container llm-project-app-run-375fcc2f5dc8 Created
+
+live-network-and-models 0 ERP {'status': 'ok'}
+MODEL_SERVER {'version': '0.15.4'}
+{"fresh_reply": "OK", "embedding_dimensions": 1024, "llm_stats": {"calls": 1, "cache_hits": 0, "prompt_tokens": 17, "completion_tokens": 2}}
+
+DOCKER_VALIDATION completed

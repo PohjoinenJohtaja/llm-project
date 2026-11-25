@@ -1,0 +1,5 @@
+docker compose --profile local-llm up -d llm
+ Container llm-project-llm-1 Creating
+ Container llm-project-llm-1 Created
+ Container llm-project-llm-1 Starting
+ Container llm-project-llm-1 Started

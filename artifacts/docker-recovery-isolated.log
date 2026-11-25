@@ -1,0 +1,976 @@
+ Image llm-project-erp Building
+ Image llm-project-app Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 989B done
+#1 DONE 0.0s
+
+#2 [internal] booting buildkit
+#2 pulling image moby/buildkit:buildx-stable-1
+#2 pulling image moby/buildkit:buildx-stable-1 6.7s done
+#2 creating container buildx_buildkit_llm-project-recovery0
+#2 creating container buildx_buildkit_llm-project-recovery0 4.0s done
+#2 DONE 14.1s
+
+#3 [app internal] load build definition from Dockerfile
+#3 transferring dockerfile: 573B done
+#3 DONE 0.1s
+
+#4 [erp internal] load metadata for docker.io/library/python:3.11-slim
+#4 ...
+
+#5 [auth] library/python:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#4 [erp internal] load metadata for docker.io/library/python:3.11-slim
+#4 DONE 2.0s
+
+#6 [app internal] load .dockerignore
+#6 transferring context: 104B 0.0s done
+#6 DONE 0.0s
+
+#7 [erp 1/7] FROM docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c
+#7 resolve docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c 0.0s done
+#7 ...
+
+#8 [erp internal] load build context
+#8 transferring context: 573.52kB 0.1s done
+#8 DONE 0.1s
+
+#7 [app 1/7] FROM docker.io/library/python:3.11-slim@sha256:61e01f72680f86a5279ad510818ab7b2ee9f049822589d4e34e33e044360356c
+#7 sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861 0B / 29.84MB 0.2s
+#7 sha256:03bf319e97a9288588235831373f7e1eb9277b2b24375f84d97bd3c6192ba808 0B / 14.47MB 0.2s
+#7 sha256:ac4f3e55c8492b4403bd1889a560387dc9a1fadff3bfc48a7b085e0738a5fcb4 0B / 1.29MB 0.2s
+#7 sha256:7cb68d39cd284bb0f746ee037b6c487e5cb431f600487f124bca7f6b433851ea 248B / 248B 0.2s done
+#7 sha256:03bf319e97a9288588235831373f7e1eb9277b2b24375f84d97bd3c6192ba808 2.13MB / 14.47MB 0.5s
+#7 sha256:03bf319e97a9288588235831373f7e1eb9277b2b24375f84d97bd3c6192ba808 14.47MB / 14.47MB 0.6s
+#7 sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861 4.19MB / 29.84MB 0.6s
+#7 sha256:ac4f3e55c8492b4403bd1889a560387dc9a1fadff3bfc48a7b085e0738a5fcb4 1.29MB / 1.29MB 0.6s
+#7 sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861 29.84MB / 29.84MB 1.3s
+#7 sha256:03bf319e97a9288588235831373f7e1eb9277b2b24375f84d97bd3c6192ba808 14.47MB / 14.47MB 1.3s done
+#7 sha256:ac4f3e55c8492b4403bd1889a560387dc9a1fadff3bfc48a7b085e0738a5fcb4 1.29MB / 1.29MB 1.4s done
+#7 sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861 29.84MB / 29.84MB 1.4s done
+#7 sha256:ac4f3e55c8492b4403bd1889a560387dc9a1fadff3bfc48a7b085e0738a5fcb4 1.29MB / 1.29MB 1.4s done
+#7 extracting sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861
+#7 extracting sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861 1.2s done
+#7 extracting sha256:40748add9f4f6f944f334cbfc286590d6e93f60fb06f6ee7ffa1b894080ad861 1.2s done
+#7 extracting sha256:ac4f3e55c8492b4403bd1889a560387dc9a1fadff3bfc48a7b085e0738a5fcb4 0.1s done
+#7 extracting sha256:ac4f3e55c8492b4403bd1889a560387dc9a1fadff3bfc48a7b085e0738a5fcb4 0.1s done
+#7 extracting sha256:03bf319e97a9288588235831373f7e1eb9277b2b24375f84d97bd3c6192ba808
+#7 extracting sha256:03bf319e97a9288588235831373f7e1eb9277b2b24375f84d97bd3c6192ba808 0.9s done
+#7 extracting sha256:03bf319e97a9288588235831373f7e1eb9277b2b24375f84d97bd3c6192ba808 0.9s done
+#7 extracting sha256:7cb68d39cd284bb0f746ee037b6c487e5cb431f600487f124bca7f6b433851ea 0.1s done
+#7 DONE 3.9s
+
+#9 [app 2/7] WORKDIR /app
+#9 DONE 2.6s
+
+#10 [app 3/7] RUN pip install --no-cache-dir uv==0.10.8
+#10 1.983 Collecting uv==0.10.8
+#10 2.098   Downloading uv-0.10.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+#10 2.127 Downloading uv-0.10.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23.3 MB)
+#10 2.376    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.3/23.3 MB 191.5 MB/s eta 0:00:00
+#10 2.469 Installing collected packages: uv
+#10 2.837 Successfully installed uv-0.10.8
+#10 2.837 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#10 2.994
+#10 2.994 [notice] A new release of pip is available: 24.0 -> 26.3
+#10 2.994 [notice] To update, run: pip install --upgrade pip
+#10 DONE 4.0s
+
+#11 [app 4/7] COPY pyproject.toml uv.lock ./
+#11 DONE 0.0s
+
+#12 [app 5/7] RUN uv sync --frozen --no-install-project
+#12 0.323 Using CPython 3.11.18 interpreter at: /usr/local/bin/python3
+#12 0.323 Creating virtual environment at: /opt/venv
+#12 0.463 Downloading pygments (1.2MiB)
+#12 0.463 Downloading networkx (2.0MiB)
+#12 0.463 Downloading numpy (16.1MiB)
+#12 0.464 Downloading pydantic-core (2.1MiB)
+#12 0.464 Downloading ruff (9.9MiB)
+#12 0.688  Downloaded pydantic-core
+#12 0.895  Downloaded ruff
+#12 0.919  Downloaded pygments
+#12 0.990  Downloaded networkx
+#12 1.228  Downloaded numpy
+#12 1.228 Prepared 23 packages in 894ms
+#12 1.323 Installed 23 packages in 95ms
+#12 1.324  + annotated-types==0.8.0
+#12 1.324  + anyio==4.15.1
+#12 1.324  + certifi==2026.7.22
+#12 1.324  + click==8.5.0
+#12 1.325  + fastapi==0.115.6
+#12 1.325  + h11==0.16.0
+#12 1.326  + httpcore==1.0.9
+#12 1.326  + httpx==0.28.1
+#12 1.327  + idna==3.20
+#12 1.328  + iniconfig==2.3.1
+#12 1.328  + networkx==3.6.1
+#12 1.328  + numpy==2.4.6
+#12 1.328  + packaging==26.3
+#12 1.328  + pluggy==1.6.0
+#12 1.328  + pydantic==2.14.0
+#12 1.328  + pydantic-core==2.50.0
+#12 1.328  + pygments==2.21.0
+#12 1.328  + pytest==8.4.2
+#12 1.328  + ruff==0.17.0
+#12 1.328  + starlette==0.41.3
+#12 1.329  + typing-extensions==4.16.0
+#12 1.329  + typing-inspection==0.4.4
+#12 1.329  + uvicorn==0.34.0
+#12 DONE 3.5s
+
+#13 [app 6/7] COPY . .
+#13 DONE 0.1s
+
+#14 [erp 7/7] RUN uv sync --frozen
+#14 0.248    Building assistant @ file:///app
+#14 1.426       Built assistant @ file:///app
+#14 1.428 Prepared 1 package in 1.18s
+#14 1.430 Installed 1 package in 2ms
+#14 1.430  + assistant==0.1.0 (from file:///app)
+#14 DONE 1.5s
+
+#15 [erp] exporting to oci image format
+#15 exporting layers
+#15 exporting layers 6.7s done
+#15 exporting manifest sha256:dea0929ba968803f2575315ee7956b7ff77d46b3ffaf395cda0be424325990d5 0.0s done
+#15 exporting config sha256:4ac0df374ad8f4aacd47aabc9ce5d3d19a53adc8fd666e7f737d9eae61326fc4 0.0s done
+#15 sending tarball
+#15 ...
+
+#16 [app] exporting to oci image format
+#16 exporting layers 6.7s done
+#16 exporting manifest sha256:7c33860690552586a32d1b5490ec50ea32b2818251cf21306e8046cf1c0f0fbb 0.0s done
+#16 exporting config sha256:128bd056f9945a3613be3825f4bf1ac95ded13af5878380f5dff35868c607dd4 0.0s done
+#16 ...
+
+#17 importing to docker
+#17 DONE 0.0s
+
+#16 [app] exporting to oci image format
+#16 sending tarball 16.5s done
+#16 DONE 23.2s
+
+#18 importing to docker
+#18 DONE 0.0s
+
+#15 [erp] exporting to oci image format
+#15 sending tarball 16.6s done
+#15 DONE 23.3s
+
+#19 [app] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [erp] resolving provenance for metadata file
+#20 DONE 0.0s
+ Image llm-project-app Built
+ Image llm-project-erp Built
+ Container llm-project-erp-1 Recreate
+ Container llm-project-erp-1 Recreated
+ Container llm-project-app-1 Recreate
+ Container llm-project-app-1 Recreated
+ Container llm-project-erp-1 Starting
+ Container llm-project-erp-1 Started
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-1 Starting
+ Container llm-project-app-1 Started
+ Image ollama/ollama:0.15.4 Pulling
+ 95e3a87cd9d9 Pulling fs layer 0B
+ a3629ac5b9f4 Pulling fs layer 0B
+ 26f128d62ae6 Pulling fs layer 0B
+ a8e73f962e4f Pulling fs layer 0B
+ a8e73f962e4f Downloading 10.23MB
+ 95e3a87cd9d9 Downloading 8.557MB
+ a8e73f962e4f Downloading 13.33MB
+ a3629ac5b9f4 Downloading 2.097MB
+ a8e73f962e4f Downloading 13.33MB
+ 95e3a87cd9d9 Downloading 16.78MB
+ 95e3a87cd9d9 Downloading 25.17MB
+ a3629ac5b9f4 Downloading 9.437MB
+ a8e73f962e4f Download complete 0B
+ 95e3a87cd9d9 Downloading 31.46MB
+ a3629ac5b9f4 Downloading 13.63MB
+ 26f128d62ae6 Downloading 5.243MB
+ 95e3a87cd9d9 Downloading 38.8MB
+ a3629ac5b9f4 Downloading 22.02MB
+ 26f128d62ae6 Downloading 13.63MB
+ 95e3a87cd9d9 Downloading 46.38MB
+ a3629ac5b9f4 Downloading 29.73MB
+ 26f128d62ae6 Downloading 22.02MB
+ 95e3a87cd9d9 Downloading 53.48MB
+ a3629ac5b9f4 Downloading 29.73MB
+ 26f128d62ae6 Downloading 28.31MB
+ a3629ac5b9f4 Downloading 29.73MB
+ 26f128d62ae6 Downloading 35.64MB
+ 95e3a87cd9d9 Downloading 60.82MB
+ 95e3a87cd9d9 Downloading 68.16MB
+ a3629ac5b9f4 Downloading 29.73MB
+ 26f128d62ae6 Downloading 40.89MB
+ 26f128d62ae6 Downloading 47.19MB
+ 95e3a87cd9d9 Downloading 77.36MB
+ a3629ac5b9f4 Downloading 29.73MB
+ a3629ac5b9f4 Downloading 29.73MB
+ 26f128d62ae6 Downloading 60.82MB
+ 95e3a87cd9d9 Downloading 88.08MB
+ 95e3a87cd9d9 Downloading 89.13MB
+ a3629ac5b9f4 Download complete 0B
+ 26f128d62ae6 Downloading 60.82MB
+ a3629ac5b9f4 Extracting 1B
+ 95e3a87cd9d9 Downloading 94.37MB
+ 26f128d62ae6 Downloading 67.11MB
+ a3629ac5b9f4 Extracting 1B
+ 95e3a87cd9d9 Downloading 99.61MB
+ 26f128d62ae6 Downloading 72.35MB
+ a3629ac5b9f4 Extracting 1B
+ 26f128d62ae6 Downloading 77.59MB
+ 6ece09b203cf Downloading 69.45kB
+ 95e3a87cd9d9 Downloading 104.9MB
+ a3629ac5b9f4 Extracting 1B
+ 95e3a87cd9d9 Downloading 111.1MB
+ 26f128d62ae6 Downloading 83.08MB
+ 6ece09b203cf Downloading 69.45kB
+ a3629ac5b9f4 Extracting 1B
+ 26f128d62ae6 Downloading 88.08MB
+ 6ece09b203cf Downloading 69.45kB
+ 95e3a87cd9d9 Downloading 116.4MB
+ a3629ac5b9f4 Extracting 1B
+ 95e3a87cd9d9 Downloading 121.6MB
+ 26f128d62ae6 Downloading 92.27MB
+ 6ece09b203cf Downloading 69.45kB
+ a3629ac5b9f4 Extracting 1B
+ 6ece09b203cf Downloading 69.45kB
+ 95e3a87cd9d9 Downloading 125.8MB
+ 26f128d62ae6 Downloading 96.47MB
+ a3629ac5b9f4 Extracting 1B
+ 95e3a87cd9d9 Downloading 129.9MB
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ a3629ac5b9f4 Extracting 1B
+ 95e3a87cd9d9 Downloading 134.1MB
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ a3629ac5b9f4 Extracting 1B
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ 95e3a87cd9d9 Downloading 139.5MB
+ a3629ac5b9f4 Extracting 1B
+ 95e3a87cd9d9 Downloading 143.7MB
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ a3629ac5b9f4 Extracting 2B
+ 6ece09b203cf Downloading 69.45kB
+ 95e3a87cd9d9 Downloading 151MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 2B
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ 95e3a87cd9d9 Downloading 153.1MB
+ a3629ac5b9f4 Extracting 2B
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ 95e3a87cd9d9 Downloading 155.2MB
+ a3629ac5b9f4 Extracting 2B
+ 95e3a87cd9d9 Downloading 157.1MB
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ a3629ac5b9f4 Extracting 2B
+ 95e3a87cd9d9 Downloading 159.8MB
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Downloading 69.45kB
+ a3629ac5b9f4 Extracting 3B
+ 95e3a87cd9d9 Downloading 165.7MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 3B
+ 95e3a87cd9d9 Downloading 175.6MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 3B
+ 95e3a87cd9d9 Downloading 186.6MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 3B
+ 95e3a87cd9d9 Downloading 195MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 3B
+ 95e3a87cd9d9 Downloading 205MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 3B
+ 26f128d62ae6 Downloading 99.36MB
+ 95e3a87cd9d9 Downloading 213.8MB
+ a3629ac5b9f4 Extracting 3B
+ 95e3a87cd9d9 Downloading 219.2MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 3B
+ 95e3a87cd9d9 Downloading 227MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 234.9MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 242.2MB
+ 26f128d62ae6 Downloading 99.36MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 252.7MB
+ 26f128d62ae6 Downloading 99.36MB
+ 6ece09b203cf Download complete 0B
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 261.1MB
+ a3629ac5b9f4 Extracting 4B
+ 26f128d62ae6 Download complete 0B
+ 95e3a87cd9d9 Downloading 274.5MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 287.3MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 298.8MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 309.3MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 319.8MB
+ a3629ac5b9f4 Extracting 4B
+ 95e3a87cd9d9 Downloading 334.5MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 348.1MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 358.6MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 360.7MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 368.7MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 376.4MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 386.9MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 398MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 410MB
+ a3629ac5b9f4 Extracting 5B
+ 95e3a87cd9d9 Downloading 418.4MB
+ a3629ac5b9f4 Extracting 7B
+ 95e3a87cd9d9 Downloading 461.4MB
+ a3629ac5b9f4 Extracting 7B
+ 95e3a87cd9d9 Downloading 463.5MB
+ a3629ac5b9f4 Extracting 7B
+ 95e3a87cd9d9 Downloading 471.3MB
+ a3629ac5b9f4 Extracting 7B
+ 95e3a87cd9d9 Downloading 483.3MB
+ a3629ac5b9f4 Extracting 7B
+ 95e3a87cd9d9 Downloading 492.2MB
+ a3629ac5b9f4 Extracting 7B
+ 95e3a87cd9d9 Downloading 500.2MB
+ a3629ac5b9f4 Extracting 7B
+ 95e3a87cd9d9 Downloading 509.6MB
+ a3629ac5b9f4 Extracting 8B
+ 95e3a87cd9d9 Downloading 521.1MB
+ a3629ac5b9f4 Extracting 8B
+ 95e3a87cd9d9 Downloading 530.6MB
+ a3629ac5b9f4 Pull complete 0B
+ 95e3a87cd9d9 Downloading 531.6MB
+ 95e3a87cd9d9 Downloading 532.7MB
+ 95e3a87cd9d9 Downloading 540MB
+ 26f128d62ae6 Extracting 1B
+ 95e3a87cd9d9 Downloading 542.4MB
+ 26f128d62ae6 Extracting 1B
+ 95e3a87cd9d9 Downloading 543.2MB
+ 26f128d62ae6 Extracting 1B
+ 95e3a87cd9d9 Downloading 544.2MB
+ 26f128d62ae6 Extracting 1B
+ 95e3a87cd9d9 Downloading 545.3MB
+ 26f128d62ae6 Extracting 1B
+ 95e3a87cd9d9 Downloading 548.4MB
+ 26f128d62ae6 Extracting 3B
+ 95e3a87cd9d9 Downloading 552.6MB
+ 26f128d62ae6 Extracting 3B
+ 95e3a87cd9d9 Downloading 555.3MB
+ 26f128d62ae6 Extracting 3B
+ 95e3a87cd9d9 Downloading 559.9MB
+ 26f128d62ae6 Extracting 3B
+ 95e3a87cd9d9 Downloading 563.1MB
+ 26f128d62ae6 Extracting 3B
+ 95e3a87cd9d9 Downloading 569.7MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 593.5MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 594.5MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 600.8MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 607.6MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 617.6MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 626MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 634.4MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 641.1MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 650.1MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 657.5MB
+ 26f128d62ae6 Extracting 4B
+ 95e3a87cd9d9 Downloading 664.8MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 673.2MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 682.6MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 692.1MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 697.3MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 705.7MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 715.1MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 725.6MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 735.1MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 745.5MB
+ 26f128d62ae6 Extracting 5B
+ 95e3a87cd9d9 Downloading 756MB
+ 26f128d62ae6 Extracting 8B
+ 95e3a87cd9d9 Downloading 794.9MB
+ 26f128d62ae6 Extracting 8B
+ 95e3a87cd9d9 Downloading 796.9MB
+ 26f128d62ae6 Extracting 8B
+ 95e3a87cd9d9 Downloading 799MB
+ 26f128d62ae6 Extracting 8B
+ 95e3a87cd9d9 Downloading 806.4MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 807.4MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 810.5MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 815.8MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 822.1MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 826.3MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 828.4MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 831.5MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 837.8MB
+ 26f128d62ae6 Extracting 9B
+ 95e3a87cd9d9 Downloading 843.2MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 853.5MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 866.1MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 881.9MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 893.4MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 897.6MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 900.7MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 900.7MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 901.8MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 913.3MB
+ 26f128d62ae6 Extracting 10B
+ 95e3a87cd9d9 Downloading 923.8MB
+ 26f128d62ae6 Extracting 11B
+ 95e3a87cd9d9 Downloading 934.3MB
+ 26f128d62ae6 Extracting 11B
+ 95e3a87cd9d9 Downloading 946.9MB
+ 26f128d62ae6 Extracting 11B
+ 95e3a87cd9d9 Downloading 958.4MB
+ 26f128d62ae6 Extracting 11B
+ 95e3a87cd9d9 Downloading 965.7MB
+ 26f128d62ae6 Extracting 12B
+ 95e3a87cd9d9 Downloading 993MB
+ 26f128d62ae6 Extracting 12B
+ 95e3a87cd9d9 Downloading 994.1MB
+ 26f128d62ae6 Extracting 12B
+ 95e3a87cd9d9 Downloading 1GB
+ 26f128d62ae6 Extracting 12B
+ 95e3a87cd9d9 Downloading 1.008GB
+ 26f128d62ae6 Extracting 12B
+ 95e3a87cd9d9 Downloading 1.015GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.02GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.022GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.028GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.037GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.052GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.055GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.056GB
+ 26f128d62ae6 Extracting 13B
+ 95e3a87cd9d9 Downloading 1.064GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.065GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.07GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.073GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.073GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.08GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.085GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.097GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.106GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.114GB
+ 26f128d62ae6 Extracting 14B
+ 95e3a87cd9d9 Downloading 1.123GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.131GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.135GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.145GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.156GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.168GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.173GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.182GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.19GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.201GB
+ 26f128d62ae6 Extracting 15B
+ 95e3a87cd9d9 Downloading 1.208GB
+ 26f128d62ae6 Extracting 16B
+ 95e3a87cd9d9 Downloading 1.228GB
+ 26f128d62ae6 Extracting 16B
+ 95e3a87cd9d9 Downloading 1.228GB
+ 26f128d62ae6 Extracting 16B
+ 95e3a87cd9d9 Downloading 1.242GB
+ 26f128d62ae6 Extracting 16B
+ 95e3a87cd9d9 Downloading 1.248GB
+ 26f128d62ae6 Extracting 16B
+ 95e3a87cd9d9 Downloading 1.257GB
+ 26f128d62ae6 Extracting 16B
+ 95e3a87cd9d9 Downloading 1.265GB
+ 26f128d62ae6 Extracting 16B
+ 95e3a87cd9d9 Downloading 1.272GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.281GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.288GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.292GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.299GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.305GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.315GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.324GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.334GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.339GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.348GB
+ 26f128d62ae6 Extracting 17B
+ 95e3a87cd9d9 Downloading 1.362GB
+ 26f128d62ae6 Extracting 18B
+ 95e3a87cd9d9 Downloading 1.366GB
+ 26f128d62ae6 Extracting 18B
+ 95e3a87cd9d9 Downloading 1.376GB
+ 26f128d62ae6 Extracting 18B
+ 95e3a87cd9d9 Downloading 1.384GB
+ 26f128d62ae6 Extracting 18B
+ 95e3a87cd9d9 Downloading 1.385GB
+ 26f128d62ae6 Extracting 18B
+ 95e3a87cd9d9 Downloading 1.385GB
+ 26f128d62ae6 Extracting 18B
+ 95e3a87cd9d9 Downloading 1.39GB
+ 26f128d62ae6 Extracting 19B
+ 95e3a87cd9d9 Downloading 1.416GB
+ 26f128d62ae6 Extracting 19B
+ 95e3a87cd9d9 Downloading 1.416GB
+ 26f128d62ae6 Extracting 19B
+ 95e3a87cd9d9 Downloading 1.424GB
+ 26f128d62ae6 Extracting 20B
+ 95e3a87cd9d9 Downloading 1.429GB
+ 26f128d62ae6 Extracting 20B
+ 95e3a87cd9d9 Downloading 1.431GB
+ 26f128d62ae6 Extracting 20B
+ 95e3a87cd9d9 Downloading 1.437GB
+ 26f128d62ae6 Extracting 20B
+ 95e3a87cd9d9 Downloading 1.444GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.465GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.471GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.482GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.491GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.501GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.501GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.503GB
+ 26f128d62ae6 Extracting 21B
+ 95e3a87cd9d9 Downloading 1.512GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.524GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.537GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.552GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.567GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.575GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.585GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.591GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.603GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.604GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.609GB
+ 26f128d62ae6 Extracting 22B
+ 95e3a87cd9d9 Downloading 1.613GB
+ 26f128d62ae6 Extracting 23B
+ 95e3a87cd9d9 Downloading 1.618GB
+ 26f128d62ae6 Extracting 23B
+ 95e3a87cd9d9 Downloading 1.62GB
+ 26f128d62ae6 Extracting 23B
+ 95e3a87cd9d9 Downloading 1.63GB
+ 26f128d62ae6 Extracting 23B
+ 95e3a87cd9d9 Downloading 1.644GB
+ 26f128d62ae6 Extracting 24B
+ 95e3a87cd9d9 Downloading 1.654GB
+ 26f128d62ae6 Extracting 24B
+ 95e3a87cd9d9 Downloading 1.657GB
+ 26f128d62ae6 Extracting 24B
+ 95e3a87cd9d9 Downloading 1.658GB
+ 26f128d62ae6 Extracting 25B
+ 95e3a87cd9d9 Downloading 1.659GB
+ 26f128d62ae6 Extracting 26B
+ 95e3a87cd9d9 Downloading 1.66GB
+ 26f128d62ae6 Extracting 26B
+ 95e3a87cd9d9 Downloading 1.665GB
+ 26f128d62ae6 Extracting 26B
+ 95e3a87cd9d9 Downloading 1.665GB
+ 26f128d62ae6 Extracting 26B
+ 95e3a87cd9d9 Downloading 1.67GB
+ 26f128d62ae6 Extracting 27B
+ 95e3a87cd9d9 Downloading 1.671GB
+ 26f128d62ae6 Extracting 27B
+ 95e3a87cd9d9 Downloading 1.678GB
+ 26f128d62ae6 Extracting 28B
+ 95e3a87cd9d9 Downloading 1.679GB
+ 26f128d62ae6 Extracting 28B
+ 95e3a87cd9d9 Downloading 1.686GB
+ 26f128d62ae6 Extracting 28B
+ 95e3a87cd9d9 Downloading 1.687GB
+ 26f128d62ae6 Extracting 28B
+ 95e3a87cd9d9 Downloading 1.698GB
+ 26f128d62ae6 Extracting 28B
+ 95e3a87cd9d9 Downloading 1.709GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.714GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.719GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.728GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.74GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.751GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.758GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.768GB
+ 26f128d62ae6 Extracting 29B
+ 95e3a87cd9d9 Downloading 1.777GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.784GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.79GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.799GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.813GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.826GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.837GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.846GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.857GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.873GB
+ 26f128d62ae6 Extracting 30B
+ 95e3a87cd9d9 Downloading 1.882GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.893GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.902GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.907GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.907GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.912GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.924GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.936GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.947GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.957GB
+ 26f128d62ae6 Extracting 31B
+ 95e3a87cd9d9 Downloading 1.963GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 1.974GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 1.985GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 1.991GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 1.999GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 2.007GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 2.016GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 2.026GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 2.034GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 2.047GB
+ 26f128d62ae6 Extracting 32B
+ 95e3a87cd9d9 Downloading 2.057GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.063GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.069GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.078GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.089GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.1GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.112GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.116GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.118GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.132GB
+ 26f128d62ae6 Extracting 33B
+ 95e3a87cd9d9 Downloading 2.143GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.154GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.163GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.164GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.174GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.18GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.185GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.193GB
+ 26f128d62ae6 Extracting 34B
+ 95e3a87cd9d9 Downloading 2.199GB
+ 26f128d62ae6 Extracting 37B
+ 95e3a87cd9d9 Downloading 2.235GB
+ 26f128d62ae6 Extracting 37B
+ 95e3a87cd9d9 Downloading 2.246GB
+ 26f128d62ae6 Extracting 37B
+ 95e3a87cd9d9 Downloading 2.26GB
+ 26f128d62ae6 Extracting 37B
+ 95e3a87cd9d9 Downloading 2.269GB
+ 26f128d62ae6 Extracting 37B
+ 95e3a87cd9d9 Downloading 2.272GB
+ 26f128d62ae6 Extracting 37B
+ 95e3a87cd9d9 Downloading 2.286GB
+ 26f128d62ae6 Extracting 37B
+ 95e3a87cd9d9 Downloading 2.293GB
+ 26f128d62ae6 Extracting 40B
+ 95e3a87cd9d9 Downloading 2.319GB
+ 26f128d62ae6 Extracting 40B
+ 95e3a87cd9d9 Downloading 2.332GB
+ 26f128d62ae6 Extracting 40B
+ 95e3a87cd9d9 Downloading 2.346GB
+ 26f128d62ae6 Extracting 40B
+ 95e3a87cd9d9 Downloading 2.358GB
+ 26f128d62ae6 Extracting 40B
+ 95e3a87cd9d9 Downloading 2.371GB
+ 26f128d62ae6 Extracting 40B
+ 95e3a87cd9d9 Downloading 2.378GB
+ 26f128d62ae6 Extracting 40B
+ 95e3a87cd9d9 Downloading 2.382GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.383GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.385GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.388GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.394GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.403GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.414GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.421GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.429GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.435GB
+ 26f128d62ae6 Extracting 41B
+ 95e3a87cd9d9 Downloading 2.446GB
+ 26f128d62ae6 Extracting 42B
+ 95e3a87cd9d9 Downloading 2.456GB
+ 26f128d62ae6 Extracting 42B
+ 95e3a87cd9d9 Downloading 2.465GB
+ 26f128d62ae6 Extracting 42B
+ 95e3a87cd9d9 Downloading 2.478GB
+ 26f128d62ae6 Extracting 42B
+ 95e3a87cd9d9 Downloading 2.492GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.507GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.521GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.522GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.522GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.53GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.542GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.547GB
+ 26f128d62ae6 Extracting 43B
+ 95e3a87cd9d9 Downloading 2.559GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.564GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.57GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.572GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.575GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.579GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.588GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.595GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.606GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.616GB
+ 26f128d62ae6 Extracting 44B
+ 95e3a87cd9d9 Downloading 2.627GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.633GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.642GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.652GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.665GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.676GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.684GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.692GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.701GB
+ 26f128d62ae6 Extracting 45B
+ 95e3a87cd9d9 Downloading 2.714GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.717GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.719GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.726GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.73GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.738GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.748GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.751GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.76GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.77GB
+ 26f128d62ae6 Extracting 46B
+ 95e3a87cd9d9 Downloading 2.776GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.781GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.783GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.785GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.789GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.789GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.799GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.802GB
+ 26f128d62ae6 Extracting 47B
+ 95e3a87cd9d9 Downloading 2.805GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.806GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.81GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.813GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.816GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.821GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.826GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.826GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.826GB
+ 26f128d62ae6 Extracting 48B
+ 95e3a87cd9d9 Downloading 2.826GB
+ 26f128d62ae6 Extracting 49B
+ 95e3a87cd9d9 Downloading 2.829GB
+ 26f128d62ae6 Extracting 49B
+ 95e3a87cd9d9 Downloading 2.831GB
+ 26f128d62ae6 Extracting 49B
+ 95e3a87cd9d9 Downloading 2.838GB
+ 26f128d62ae6 Extracting 49B
+ 95e3a87cd9d9 Downloading 2.84GB
+ 26f128d62ae6 Extracting 49B
+ 95e3a87cd9d9

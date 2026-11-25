@@ -1,0 +1,316 @@
+{
+  "checks": [
+    {
+      "health_port": 8000,
+      "result": {
+        "status": "ok"
+      }
+    },
+    {
+      "health_port": 8100,
+      "result": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "dev-17",
+      "confirm": false,
+      "seconds": 0.58,
+      "response": {
+        "answer": "Деталь для замены ошибки E-17 на модели AR-210 — P-1042B (пусковое реле).\n\nНа складе в Казани есть 3 штуки.  \nЦена одной детали — 2630 рублей.",
+        "sources": [
+          "bulletin_SB-2025-03.md",
+          "manual_AR-210.md",
+          "manual_AR-220.md",
+          "manual_AR-310.md",
+          "manual_AR-320.md",
+          "procedure_SP-104.md",
+          "report_R-2025-003.md",
+          "report_R-2025-010.md",
+          "report_R-2025-012.md",
+          "report_R-2025-023.md",
+          "report_R-2025-028.md",
+          "report_R-2025-034.md",
+          "report_R-2025-036.md",
+          "report_R-2025-037.md",
+          "report_R-2025-039.md"
+        ],
+        "refused": false,
+        "needs_confirmation": false,
+        "pending_action": null,
+        "steps": [
+          {
+            "tool": "search_knowledge",
+            "args": {
+              "question": "Ошибка E-17 на AR-210. Какую деталь заменить?"
+            },
+            "result": {
+              "answer": "Деталь, которую нужно заменить, — P-1042B.",
+              "facts": [
+                "P-1042 -REPLACED_BY-> P-1042B",
+                "E-17 -INDICATES-> пусковое реле",
+                "AR-210 -FAILED-> пусковое реле",
+                "AR-210 -HAS_PART-> P-1042",
+                "P-1042 -IS_A-> пусковое реле"
+              ],
+              "sources": [
+                "bulletin_SB-2025-03.md",
+                "manual_AR-210.md",
+                "manual_AR-220.md",
+                "manual_AR-310.md",
+                "manual_AR-320.md",
+                "procedure_SP-104.md",
+                "report_R-2025-003.md",
+                "report_R-2025-010.md",
+                "report_R-2025-012.md",
+                "report_R-2025-023.md",
+                "report_R-2025-028.md",
+                "report_R-2025-034.md",
+                "report_R-2025-036.md",
+                "report_R-2025-037.md",
+                "report_R-2025-039.md"
+              ],
+              "refused": false
+            },
+            "error": null
+          },
+          {
+            "tool": "check_stock",
+            "args": {
+              "warehouse": "Казань",
+              "part_id": "P-1042B"
+            },
+            "result": {
+              "part_id": "P-1042B",
+              "warehouse": "Казань",
+              "qty": 3,
+              "discontinued": false
+            },
+            "error": null
+          },
+          {
+            "tool": "get_price",
+            "args": {
+              "part_id": "P-1042B"
+            },
+            "result": {
+              "part_id": "P-1042B",
+              "name": "пусковое реле",
+              "price_rub": 2630,
+              "discontinued": false
+            },
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "dev-21",
+      "confirm": false,
+      "seconds": 0.07,
+      "response": {
+        "answer": "Подтвердите создание заказа: деталь P-2054C, количество: 2, для BZ-120, склад Москва. Заказ ещё не создан.",
+        "sources": [
+          "bulletin_SB-2025-04.md",
+          "bulletin_SB-2025-08.md",
+          "manual_BZ-110.md",
+          "manual_BZ-120.md",
+          "manual_BZ-210.md",
+          "manual_BZ-220.md",
+          "procedure_SP-110.md",
+          "report_R-2025-004.md",
+          "report_R-2025-024.md",
+          "report_R-2025-030.md",
+          "report_R-2025-033.md"
+        ],
+        "refused": false,
+        "needs_confirmation": true,
+        "pending_action": {
+          "tool": "create_service_order",
+          "args": {
+            "part_id": "P-2054C",
+            "warehouse": "Москва",
+            "qty": 2,
+            "model": "BZ-120"
+          }
+        },
+        "steps": [
+          {
+            "tool": "search_knowledge",
+            "args": {
+              "question": "зamена детали для устранения ошибки E-20 на модели BZ-120"
+            },
+            "result": {
+              "answer": "P-2054C",
+              "facts": [
+                "P-2054 -REPLACED_BY-> P-2054B",
+                "P-2054B -REPLACED_BY-> P-2054C",
+                "E-20 -INDICATES-> нагреватель оттайки",
+                "BZ-120 -FAILED-> нагреватель оттайки",
+                "BZ-120 -HAS_PART-> P-2054",
+                "P-2054 -IS_A-> нагреватель оттайки"
+              ],
+              "sources": [
+                "bulletin_SB-2025-04.md",
+                "bulletin_SB-2025-08.md",
+                "manual_BZ-110.md",
+                "manual_BZ-120.md",
+                "manual_BZ-210.md",
+                "manual_BZ-220.md",
+                "procedure_SP-110.md",
+                "report_R-2025-004.md",
+                "report_R-2025-024.md",
+                "report_R-2025-030.md",
+                "report_R-2025-033.md"
+              ],
+              "refused": false
+            },
+            "error": null
+          },
+          {
+            "tool": "check_stock",
+            "args": {
+              "part_id": "P-2054C",
+              "warehouse": "Москва"
+            },
+            "result": {
+              "part_id": "P-2054C",
+              "warehouse": "Москва",
+              "qty": 6,
+              "discontinued": false
+            },
+            "error": null
+          },
+          {
+            "tool": "get_price",
+            "args": {
+              "part_id": "P-2054C"
+            },
+            "result": {
+              "part_id": "P-2054C",
+              "name": "нагреватель оттайки",
+              "price_rub": 6750,
+              "discontinued": false
+            },
+            "error": null
+          },
+          {
+            "tool": "create_service_order",
+            "args": {
+              "part_id": "P-2054C",
+              "warehouse": "Москва",
+              "qty": 2,
+              "model": "BZ-120"
+            },
+            "result": null,
+            "error": "Требуется подтверждение пользователя."
+          }
+        ]
+      }
+    },
+    {
+      "id": "dev-21",
+      "confirm": true,
+      "seconds": 0.03,
+      "response": {
+        "answer": "Заказ успешно создан.  \nID заказа: SO-000001  \nДеталь: нагреватель оттайки (P-2054C)  \nКоличество: 2 штуки  \nМодель: BZ-120  \nСклад: Москва  \nСтатус: created",
+        "sources": [
+          "bulletin_SB-2025-04.md",
+          "bulletin_SB-2025-08.md",
+          "manual_BZ-110.md",
+          "manual_BZ-120.md",
+          "manual_BZ-210.md",
+          "manual_BZ-220.md",
+          "procedure_SP-110.md",
+          "report_R-2025-004.md",
+          "report_R-2025-024.md",
+          "report_R-2025-030.md",
+          "report_R-2025-033.md"
+        ],
+        "refused": false,
+        "needs_confirmation": false,
+        "pending_action": null,
+        "steps": [
+          {
+            "tool": "search_knowledge",
+            "args": {
+              "question": "зamена детали для устранения ошибки E-20 на модели BZ-120"
+            },
+            "result": {
+              "answer": "P-2054C",
+              "facts": [
+                "P-2054 -REPLACED_BY-> P-2054B",
+                "P-2054B -REPLACED_BY-> P-2054C",
+                "E-20 -INDICATES-> нагреватель оттайки",
+                "BZ-120 -FAILED-> нагреватель оттайки",
+                "BZ-120 -HAS_PART-> P-2054",
+                "P-2054 -IS_A-> нагреватель оттайки"
+              ],
+              "sources": [
+                "bulletin_SB-2025-04.md",
+                "bulletin_SB-2025-08.md",
+                "manual_BZ-110.md",
+                "manual_BZ-120.md",
+                "manual_BZ-210.md",
+                "manual_BZ-220.md",
+                "procedure_SP-110.md",
+                "report_R-2025-004.md",
+                "report_R-2025-024.md",
+                "report_R-2025-030.md",
+                "report_R-2025-033.md"
+              ],
+              "refused": false
+            },
+            "error": null
+          },
+          {
+            "tool": "check_stock",
+            "args": {
+              "part_id": "P-2054C",
+              "warehouse": "Москва"
+            },
+            "result": {
+              "part_id": "P-2054C",
+              "warehouse": "Москва",
+              "qty": 6,
+              "discontinued": false
+            },
+            "error": null
+          },
+          {
+            "tool": "get_price",
+            "args": {
+              "part_id": "P-2054C"
+            },
+            "result": {
+              "part_id": "P-2054C",
+              "name": "нагреватель оттайки",
+              "price_rub": 6750,
+              "discontinued": false
+            },
+            "error": null
+          },
+          {
+            "tool": "create_service_order",
+            "args": {
+              "part_id": "P-2054C",
+              "warehouse": "Москва",
+              "qty": 2,
+              "model": "BZ-120"
+            },
+            "result": {
+              "order_id": "SO-000001",
+              "part_id": "P-2054C",
+              "warehouse": "Москва",
+              "qty": 2,
+              "model": "BZ-120",
+              "status": "created"
+            },
+            "error": null
+          }
+        ]
+      }
+    }
+  ],
+  "state": "completed"
+}

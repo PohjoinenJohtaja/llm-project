@@ -1,0 +1,69 @@
+{
+  "services": "{\"Command\":\"\\\"uvicorn assistant.i…\\\"\",\"CreatedAt\":\"2026-11-25 12:08:21 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"\",\"ID\":\"8306fc38ecdb\",\"Image\":\"llm-project-app\",\"Labels\":\"com.docker.compose.config-hash=27f421ff4cf134907b5e6824ef3607ca600595e60fa233b2f5c393bc792d2165,com.docker.compose.oneoff=False,com.docker.compose.project=llm-project,com.docker.compose.replace=app-1,com.docker.compose.service=app,com.docker.compose.container-number=1,com.docker.compose.depends_on=erp:service_healthy:false,com.docker.compose.image=sha256:7c33860690552586a32d1b5490ec50ea32b2818251cf21306e8046cf1c0f0fbb,com.docker.compose.project.config_files=/workspaces/llm-project/docker-compose.yml,com.docker.compose.project.working_dir=/workspaces/llm-project,com.docker.compose.version=5.6.1\",\"LocalVolumes\":\"0\",\"Mounts\":\"/workspaces/ll…,/workspaces/ll…,/workspaces/ll…,/workspaces/ll…\",\"Name\":\"llm-project-app-1\",\"Names\":\"llm-project-app-1\",\"Networks\":\"llm-project_default\",\"Ports\":\"0.0.0.0:8000-\\u003e8000/tcp, [::]:8000-\\u003e8000/tcp\",\"Project\":\"llm-project\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":8000,\"PublishedPort\":8000,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":8000,\"PublishedPort\":8000,\"Protocol\":\"tcp\"}],\"RunningFor\":\"8 minutes ago\",\"Service\":\"app\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up 8 minutes\"}\n{\"Command\":\"\\\"uvicorn erp.app:app…\\\"\",\"CreatedAt\":\"2026-11-25 12:08:18 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"healthy\",\"ID\":\"37c28a3d7eeb\",\"Image\":\"llm-project-erp\",\"Labels\":\"com.docker.compose.project.working_dir=/workspaces/llm-project,com.docker.compose.service=erp,com.docker.compose.config-hash=0021f117d025ab65def9c3cdd47568e5d660c62e1468244191303f94dd64a8ce,com.docker.compose.depends_on=,com.docker.compose.oneoff=False,com.docker.compose.project=llm-project,com.docker.compose.replace=erp-1,com.docker.compose.version=5.6.1,com.docker.compose.container-number=1,com.docker.compose.image=sha256:dea0929ba968803f2575315ee7956b7ff77d46b3ffaf395cda0be424325990d5,com.docker.compose.project.config_files=/workspaces/llm-project/docker-compose.yml\",\"LocalVolumes\":\"0\",\"Mounts\":\"\",\"Name\":\"llm-project-erp-1\",\"Names\":\"llm-project-erp-1\",\"Networks\":\"llm-project_default\",\"Ports\":\"0.0.0.0:8100-\\u003e8100/tcp, [::]:8100-\\u003e8100/tcp\",\"Project\":\"llm-project\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":8100,\"PublishedPort\":8100,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":8100,\"PublishedPort\":8100,\"Protocol\":\"tcp\"}],\"RunningFor\":\"8 minutes ago\",\"Service\":\"erp\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up 8 minutes (healthy)\"}\n{\"Command\":\"\\\"/bin/ollama serve\\\"\",\"CreatedAt\":\"2026-11-25 12:16:05 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"\",\"ID\":\"6b5ec000b440\",\"Image\":\"ollama/ollama:0.15.4\",\"Labels\":\"com.docker.compose.replace=llm-1,com.docker.compose.version=5.6.1,org.opencontainers.image.ref.name=ubuntu,com.docker.compose.config-hash=3000fd25b1e06b05b8ef07aeb82540ce5b7c1dbb7d53f5838fc08c2f40bce41d,com.docker.compose.image=sha256:9f61ba22dc94dfea0b633920111da271d2ad535e353429747f5486fc91636f38,com.docker.compose.project.config_files=/workspaces/llm-project/docker-compose.yml,com.docker.compose.service=llm,org.opencontainers.image.version=24.04,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.oneoff=False,com.docker.compose.project=llm-project,com.docker.compose.project.working_dir=/workspaces/llm-project\",\"LocalVolumes\":\"1\",\"Mounts\":\"llm-project_ol…\",\"Name\":\"llm-project-llm-1\",\"Names\":\"llm-project-llm-1\",\"Networks\":\"llm-project_default\",\"Ports\":\"0.0.0.0:11434-\\u003e11434/tcp, [::]:11434-\\u003e11434/tcp\",\"Project\":\"llm-project\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":11434,\"PublishedPort\":11434,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":11434,\"PublishedPort\":11434,\"Protocol\":\"tcp\"}],\"RunningFor\":\"22 seconds ago\",\"Service\":\"llm\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up 21 seconds\"}\n",
+  "disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/loop4       32G   25G  4.9G  84% /workspaces\n",
+  "app": {
+    "status": "ok"
+  },
+  "erp": {
+    "status": "ok"
+  },
+  "ollama": {
+    "version": "0.15.4"
+  },
+  "models": {
+    "models": [
+      {
+        "name": "bge-m3-cpu:latest",
+        "model": "bge-m3-cpu:latest",
+        "modified_at": "2026-11-25T11:27:21.461462752Z",
+        "size": 1157672693,
+        "digest": "b5ebf672121b4b1229f200288e45a7420802c0a161312004546c2af020521c66",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "bert",
+          "families": [
+            "bert"
+          ],
+          "parameter_size": "566.70M",
+          "quantization_level": "F16"
+        }
+      },
+      {
+        "name": "bge-m3:latest",
+        "model": "bge-m3:latest",
+        "modified_at": "2026-11-24T11:40:55.62913905Z",
+        "size": 1157672605,
+        "digest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "bert",
+          "families": [
+            "bert"
+          ],
+          "parameter_size": "566.70M",
+          "quantization_level": "F16"
+        }
+      },
+      {
+        "name": "qwen3:4b-instruct-2507-q4_K_M",
+        "model": "qwen3:4b-instruct-2507-q4_K_M",
+        "modified_at": "2026-11-24T11:40:06.627135557Z",
+        "size": 2497293803,
+        "digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M"
+        }
+      }
+    ]
+  },
+  "state": "completed"
+}
