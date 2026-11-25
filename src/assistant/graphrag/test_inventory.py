@@ -105,3 +105,18 @@ def test_inventory_second_wrong_direction_is_dropped_without_more_retries():
     assert all(r.matches_schema() for r in result.relations)
     assert "P-9001" not in {r.object.name for r in result.relations if r.type == "HAS_PART"}
     assert len(llm.requests) == 3
+
+
+def test_inventory_missing_model_links_get_one_completeness_retry():
+    parts = ["P-9001", "P-9002", "P-9003", "P-9004"]
+    chunk = Chunk(
+        "inventory.md#0",
+        "inventory.md",
+        "# AR-210\n## Состав узлов\n" + "\n".join(f"- компрессор — деталь {p}" for p in parts),
+    )
+    llm = FakeLLM([response(parts[:1]), response(parts[:3]), response(parts[3:])])
+    result = extract_chunk(chunk, llm)
+    assert {r.object.name for r in result.relations if r.type == "HAS_PART"} == set(parts)
+    assert len(llm.requests) == 3
+    assert "P-9002" in llm.requests[1]["messages"][-1]["content"]
+    assert "P-9004" not in llm.requests[1]["messages"][-1]["content"]

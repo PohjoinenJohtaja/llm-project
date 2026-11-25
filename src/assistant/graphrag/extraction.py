@@ -137,6 +137,36 @@ def _extract_single(chunk: Chunk, llm: LLMClient, *, check_directions: bool = Fa
                     },
                 ]
                 continue
+            if check_directions and attempt == 0 and "состав узлов" in chunk.text.casefold():
+                listed = {
+                    code
+                    for line in chunk.text.splitlines()
+                    if line.lstrip().startswith(("- ", "* ", "|"))
+                    for code in find_codes(line)
+                    if code.startswith("P-")
+                }
+                covered = {
+                    canonical_name("Part", row["object"], vocab)
+                    for row in data["relations"]
+                    if row["type"] == "HAS_PART" and row["subject_type"] == "Model" and row["object_type"] == "Part"
+                }
+                missing = sorted(listed - covered)
+                if missing:
+                    messages = messages + [
+                        {"role": "assistant", "content": response.content},
+                        {
+                            "role": "user",
+                            "content": (
+                                "Проверь полноту извлечения раздела «Состав узлов». "
+                                "Для каждой явно установленной в модели детали нужна HAS_PART: Model -> Part. "
+                                "В исходном тексте перечислены детали, но их связи с моделью пропущены: "
+                                + ", ".join(missing)
+                                + ". Верни полный исправленный JSON по схеме, "
+                                "сохрани остальные факты. Не добавляй неподтверждённые текстом связи."
+                            ),
+                        },
+                    ]
+                    continue
             break
         except (ValueError, TypeError):
             if attempt == 1:
