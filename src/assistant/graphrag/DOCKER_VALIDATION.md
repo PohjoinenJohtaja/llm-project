@@ -1,5 +1,7 @@
 # Проверка Docker в GitHub Codespaces
 
+[Обзор решения](PROJECT.md) · [Запуск с чистого клона](CLEAN_DOCKER.md)
+
 Проверено 25 ноября 2026 года на коде 4079492 (реализация e3a7cc6).
 Docker 29.9.2-2, Compose v5.6.1, Ollama 0.15.4, CPU.
 

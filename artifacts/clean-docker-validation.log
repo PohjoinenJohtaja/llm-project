@@ -1,0 +1,131 @@
+['git', 'clone', '--quiet', 'https://github.com/PohjoinenJohtaja/llm-project.git', '/workspaces/llm-project-cleancheck-20261125T123154'] 0
+['git', 'rev-parse', 'HEAD'] 0 173c4641ec10799e6f27fff119a942836246650c
+
+['git', 'status', '--porcelain'] 0
+['cp', '.env.example', '.env'] 0
+['make', 'down'] 0 docker compose --profile local-llm down
+ Container llm-project-app-1 Stopping
+ Container llm-project-llm-1 Stopping
+ Container llm-project-llm-1 Stopped
+ Container llm-project-llm-1 Removing
+ Container llm-project-llm-1 Removed
+ Container llm-project-app-1 Stopped
+ Container llm-project-app-1 Removing
+ Container llm-project-app-1 Removed
+ Container llm-project-erp-1 Stopping
+ Container llm-project-erp-1 Stopped
+ Container llm-project-erp-1 Removing
+ Container llm-project-erp-1 Removed
+ Network llm-project_default Removing
+ Network llm-project_default Removed
+
+['make', 'up-llm'] 0 docker compose --profile local-llm up -d llm
+ Network llm-project_default Creating
+ Network llm-project_default Creating
+ Network llm-project_default Created
+ Network llm-project_default Created
+ Container llm-project-llm-1 Creating
+ Container llm-project-llm-1 Created
+ Container llm-project-llm-1 Starting
+ Container llm-project-llm-1 Started
+
+['docker', 'compose', 'exec', '-T', 'llm', 'ollama', 'list'] 0 NAME                             ID              SIZE      MODIFIED
+bge-m3-cpu:latest                b5ebf672121b    1.2 GB    About an hour ago
+bge-m3:latest                    790764642607    1.2 GB    25 hours ago
+qwen3:4b-instruct-2507-q4_K_M    0edcdef34593    2.5 GB    25 hours ago
+
+['docker', 'compose', 'exec', '-T', 'llm', 'sh', '-c', 'cat > /tmp/Modelfile.bge-m3-cpu'] 0
+['docker', 'compose', 'exec', '-T', 'llm', 'ollama', 'create', 'bge-m3-cpu', '-f', '/tmp/Modelfile.bge-m3-cpu'] 0 26l[?2026h[?25l[1Ggathering model components [K[?25h[?2026l[?2026h[?25l[1Ggathering model components [K[?25h[?2026l[?2026h[?25l[1Ggathering model components [K[?25h[?2026l[?2026h[?25l[1Ggathering model components [K[?25h[?2026l[?2026h[?25l[1Ggathering model components [K[?25h[?2026l[?2026h[?25l[1Ggathering model components [K
+using existing layer sha256:daec91ffb5dd0c27411bd71f29932917c49cf529a641d0168496c3a501e3062c [K
+using existing layer sha256:a406579cd136771c705c521db86ca7d60a6f3de7c9b5460e6193a2df27861bde [K
+using existing layer sha256:70701d1fff6d0ee0d7c41bb24fcc0021e5ad086027fe9dceefb89347d2d2f7bf [K
+writing manifest [K
+success [K[?25h[?2026l
+
+['make', 'up'] 0 ker.io/library/llm-project-app:latest 3.8s done
+#15 DONE 8.3s
+
+#16 [app] resolving provenance for metadata file
+#16 DONE 0.0s
+
+#17 [erp] resolving provenance for metadata file
+#17 DONE 0.0s
+ Image llm-project-app Building
+ Image llm-project-erp Building
+ Image llm-project-app Built
+ Image llm-project-erp Built
+ Container llm-project-erp-1 Creating
+ Container llm-project-erp-1 Created
+ Container llm-project-app-1 Creating
+ Container llm-project-app-1 Created
+ Container llm-project-erp-1 Starting
+ Container llm-project-erp-1 Started
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-1 Starting
+ Container llm-project-app-1 Started
+
+['make', 'index'] 0 влечение 92/92: report_R-2025-040.md#0
+сводка сообщества 0: узлов 18
+сводка сообщества 1: узлов 14
+сводка сообщества 2: узлов 14
+сводка сообщества 3: узлов 20
+сводка сообщества 4: узлов 13
+сводка сообщества 5: узлов 9
+сводка сообщества 6: узлов 17
+сводка сообщества 7: узлов 13
+индекс готов: {"chunks": 92, "nodes": 118, "edges": 269, "communities": 8, "dropped": 74, "conflicts": 0, "llm": {"calls": 138, "cache_hits": 138, "prompt_tokens": 172764, "completion_tokens": 48278}}
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-4ee872fc2806 Creating
+ Container llm-project-app-run-4ee872fc2806 Created
+
+['make', 'test'] 0 docker compose run --rm app pytest -q
+........................................................................ [ 50%]
+......................................................................   [100%]
+142 passed in 1.87s
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-c845d76994a5 Creating
+ Container llm-project-app-run-c845d76994a5 Created
+
+['make', 'test', 'ARGS=tests erp/tests src/assistant'] 0 docker compose run --rm app pytest -q tests erp/tests src/assistant
+........................................................................ [ 43%]
+........................................................................ [ 87%]
+....................                                                     [100%]
+164 passed in 2.07s
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-9b6cc648a95e Creating
+ Container llm-project-app-run-9b6cc648a95e Created
+
+['make', 'lint'] 0 docker compose run --rm app ruff check .
+All checks passed!
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-33bfb31ca87d Creating
+ Container llm-project-app-run-33bfb31ca87d Created
+
+['make', 'eval-all'] 0 акты 0.00, вызовов модели на вопрос 1.0
+local: верных ответов 0.46 (local 0.80, multihop 0.43, global 0.25, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 0.9
+global: верных ответов 0.54 (local 0.80, multihop 0.29, global 1.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 7.7
+agent: верных ответов 0.71 (local 0.60, multihop 0.43, global 0.75, tool 1.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 5.1
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-90dc53aa9733 Creating
+ Container llm-project-app-run-90dc53aa9733 Created
+
+['make', 'eval-extraction'] 0 docker compose run --rm app python -m assistant eval-extraction
+извлечение: связи Precision 0.97, Recall 0.96, отброшено проверками 7
+ Container llm-project-erp-1 Running
+ Container llm-project-erp-1 Waiting
+ Container llm-project-erp-1 Healthy
+ Container llm-project-app-run-5d4deab43469 Creating
+ Container llm-project-app-run-5d4deab43469 Created
+
+CLEAN_DOCKER completed
