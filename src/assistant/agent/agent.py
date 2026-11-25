@@ -208,7 +208,8 @@ def run_agent(
                 if not confirm:
                     steps.append(ToolStep(call.name, args, error="Требуется подтверждение пользователя."))
                     return finish(
-                        "Подтвердите создание заказа.",
+                        f"Подтвердите создание заказа: {args['qty']} шт. детали {args['part_id']} "
+                        f"для {args['model']}, склад {args['warehouse']}. Заказ ещё не создан.",
                         needs_confirmation=True,
                         pending_action={"tool": call.name, "args": dict(args)},
                     )

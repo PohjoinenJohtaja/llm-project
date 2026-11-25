@@ -103,6 +103,7 @@ def test_false_order_claim_is_corrected_to_confirmation_without_side_effects():
     )
     assert result.needs_confirmation and result.pending_action["args"] == args
     assert not calls and "оформлен" not in result.answer
+    assert all(value in result.answer for value in ("P-1042B", "2 шт.", "AR-210", "Казань"))
 
 
 def test_repeated_false_order_claim_is_not_presented_as_success():
