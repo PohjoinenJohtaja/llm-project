@@ -1,0 +1,1 @@
+{"id": "chatcmpl-102", "object": "chat.completion", "created": 1795604551, "model": "qwen3:4b-instruct-2507-q4_K_M", "system_fingerprint": "fp_ollama", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Ошибку E-17 устраняют по процедуре SP-104."}, "finish_reason": "stop"}], "usage": {"prompt_tokens": 1042, "completion_tokens": 21, "total_tokens": 1063}}

@@ -1,0 +1,357 @@
+{
+  "before": {
+    "baseline": {
+      "mode": "baseline",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.5,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 1.0
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.571
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 0.0
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 0.0
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 0.856,
+      "rejected_calls_rate": 0.0,
+      "llm_calls_per_question": 1.0,
+      "tokens_per_question": 1359.375
+    },
+    "local": {
+      "mode": "local",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.417,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 0.8
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.286
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 0.25
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 0.0
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 0.85,
+      "rejected_calls_rate": 0.0,
+      "llm_calls_per_question": 0.833,
+      "tokens_per_question": 462.917
+    },
+    "global": {
+      "mode": "global",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.375,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 0.2
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.286
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 0.75
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 0.0
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 0.578,
+      "rejected_calls_rate": 0.0,
+      "llm_calls_per_question": 7.625,
+      "tokens_per_question": 3435.792
+    },
+    "agent": {
+      "mode": "agent",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.542,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 0.6
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.286
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 0.75
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 0.4
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 0.725,
+      "rejected_calls_rate": 0.111,
+      "llm_calls_per_question": 5.167,
+      "tokens_per_question": 3087.292
+    }
+  },
+  "after": {
+    "baseline": {
+      "mode": "baseline",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.5,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 1.0
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.571
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 0.0
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 0.0
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 0.856,
+      "rejected_calls_rate": 0.0,
+      "llm_calls_per_question": 1.0,
+      "tokens_per_question": 1359.375
+    },
+    "local": {
+      "mode": "local",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.458,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 0.8
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.429
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 0.25
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 0.0
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 1.0,
+      "rejected_calls_rate": 0.0,
+      "llm_calls_per_question": 0.875,
+      "tokens_per_question": 674.125
+    },
+    "global": {
+      "mode": "global",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.542,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 0.8
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.286
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 1.0
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 0.0
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 0.678,
+      "rejected_calls_rate": 0.0,
+      "llm_calls_per_question": 7.667,
+      "tokens_per_question": 3542.292
+    },
+    "agent": {
+      "mode": "agent",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "questions": 24,
+      "accuracy": 0.708,
+      "by_type": {
+        "local": {
+          "questions": 5,
+          "accuracy": 0.6
+        },
+        "multihop": {
+          "questions": 7,
+          "accuracy": 0.429
+        },
+        "global": {
+          "questions": 4,
+          "accuracy": 0.75
+        },
+        "tool": {
+          "questions": 5,
+          "accuracy": 1.0
+        },
+        "refusal": {
+          "questions": 3,
+          "accuracy": 1.0
+        }
+      },
+      "fabricated_rate": 0.0,
+      "source_recall": 0.875,
+      "rejected_calls_rate": 0.059,
+      "llm_calls_per_question": 5.125,
+      "tokens_per_question": 3737.0
+    }
+  },
+  "extraction_before": {
+    "relations": {
+      "precision": 0.975,
+      "recall": 0.932,
+      "found": 158,
+      "gold": 161
+    },
+    "entities": {
+      "precision": 0.976,
+      "recall": 0.976,
+      "found": 169,
+      "gold": 165
+    },
+    "dropped": 5,
+    "documents": 16
+  },
+  "extraction_after": {
+    "relations": {
+      "precision": 0.975,
+      "recall": 0.963,
+      "found": 163,
+      "gold": 161
+    },
+    "entities": {
+      "precision": 0.976,
+      "recall": 0.976,
+      "found": 169,
+      "gold": 165
+    },
+    "dropped": 7,
+    "documents": 16
+  },
+  "remaining_inventory_gaps": {
+    "method": "Compare explicitly listed manual inventory rows with graph edges; no changes to graph",
+    "expected_relations": 288,
+    "present": 280,
+    "missing": [
+      [
+        "manual_AR-320.md",
+        "Model:AR-320",
+        "HAS_PART",
+        "Part:P-1122"
+      ],
+      [
+        "manual_AR-320.md",
+        "Model:AR-320",
+        "HAS_PART",
+        "Part:P-1126"
+      ],
+      [
+        "manual_AR-320.md",
+        "Model:AR-320",
+        "HAS_PART",
+        "Part:P-1142"
+      ],
+      [
+        "manual_BZ-210.md",
+        "Model:BZ-210",
+        "HAS_PART",
+        "Part:P-2122"
+      ],
+      [
+        "manual_BZ-210.md",
+        "Model:BZ-210",
+        "HAS_PART",
+        "Part:P-2126"
+      ],
+      [
+        "manual_BZ-210.md",
+        "Model:BZ-210",
+        "HAS_PART",
+        "Part:P-2146"
+      ],
+      [
+        "manual_GS-420.md",
+        "Model:GS-420",
+        "HAS_PART",
+        "Part:P-3014"
+      ],
+      [
+        "manual_GS-420.md",
+        "Model:GS-420",
+        "HAS_PART",
+        "Part:P-3018"
+      ]
+    ]
+  }
+}

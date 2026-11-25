@@ -1,0 +1,92 @@
+{
+  "code_commit": "e3a7cc6bf3162b38cf22150e56be4a1a4a1f0474",
+  "environment": "fresh cloud clone and fresh uv environment; saved LLM cache; isolated confirmation ERP",
+  "docker_verified": false,
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--frozen",
+        "--python",
+        "3.11"
+      ],
+      "exit_code": 0,
+      "seconds": 0.51,
+      "output": "Using CPython 3.11.17\nCreating virtual environment at: .venv\nPrepared 1 package in 447ms\nInstalled 24 packages in 39ms\n + annotated-types==0.8.0\n + anyio==4.15.1\n + assistant==0.1.0 (from file:///content/llm-project-repro-v3)\n + certifi==2026.7.22\n + click==8.5.0\n + fastapi==0.115.6\n + h11==0.16.0\n + httpcore==1.0.9\n + httpx==0.28.1\n + idna==3.20\n + iniconfig==2.3.1\n + networkx==3.6.1\n + numpy==2.4.6\n + packaging==26.3\n + pluggy==1.6.0\n + pydantic==2.14.0\n + pydantic-core==2.50.0\n + pygments==2.21.0\n + pytest==8.4.2\n + ruff==0.17.0\n + starlette==0.41.3\n + typing-extensions==4.16.0\n + typing-inspection==0.4.4\n + uvicorn==0.34.0\n"
+    },
+    {
+      "command": [
+        "make",
+        "test",
+        "RUN=uv run",
+        "ARGS=tests erp/tests src/assistant"
+      ],
+      "exit_code": 0,
+      "seconds": 3.21,
+      "output": "uv run pytest -q tests erp/tests src/assistant\n........................................................................ [ 43%]\n........................................................................ [ 87%]\n....................                                                     [100%]\n164 passed in 2.26s\n"
+    },
+    {
+      "command": [
+        "make",
+        "lint",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 0.05,
+      "output": "uv run ruff check .\nAll checks passed!\n"
+    },
+    {
+      "command": [
+        "make",
+        "index",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 0.59,
+      "output": "uv run python -m assistant index\nизвлечение 1/92: bulletin_SB-2025-01.md#0\nизвлечение 2/92: bulletin_SB-2025-02.md#0\nизвлечение 3/92: bulletin_SB-2025-03.md#0\nизвлечение 4/92: bulletin_SB-2025-04.md#0\nизвлечение 5/92: bulletin_SB-2025-05.md#0\nизвлечение 6/92: bulletin_SB-2025-06.md#0\nизвлечение 7/92: bulletin_SB-2025-07.md#0\nизвлечение 8/92: bulletin_SB-2025-08.md#0\nизвлечение 9/92: bulletin_SB-2025-09.md#0\nизвлечение 10/92: bulletin_SB-2025-10.md#0\nизвлечение 11/92: manual_AR-210.md#0\nизвлечение 12/92: manual_AR-210.md#1\nизвлечение 13/92: manual_AR-220.md#0\nизвлечение 14/92: manual_AR-220.md#1\nизвлечение 15/92: manual_AR-310.md#0\nизвлечение 16/92: manual_AR-310.md#1\nизвлечение 17/92: manual_AR-320.md#0\nизвлечение 18/92: manual_AR-320.md#1\nизвлечение 19/92: manual_BZ-110.md#0\nизвлечение 20/92: manual_BZ-110.md#1\nизвлечение 21/92: manual_BZ-120.md#0\nизвлечение 22/92: manual_BZ-120.md#1\nизвлечение 23/92: manual_BZ-210.md#0\nизвлечение 24/92: manual_BZ-210.md#1\nизвлечение 25/92: manual_BZ-220.md#0\nизвлечение 26/92: manual_BZ-220.md#1\nизвлечение 27/92: manual_GS-410.md#0\nизвлечение 28/92: manual_GS-410.md#1\nизвлечение 29/92: manual_GS-420.md#0\nизвлечение 30/92: manual_GS-420.md#1\nизвлечение 31/92: manual_GS-510.md#0\nизвлечение 32/92: manual_GS-510.md#1\nизвлечение 33/92: manual_GS-520.md#0\nизвлечение 34/92: manual_GS-520.md#1\nизвлечение 35/92: procedure_SP-101.md#0\nизвлечение 36/92: procedure_SP-102.md#0\nизвлечение 37/92: procedure_SP-103.md#0\nизвлечение 38/92: procedure_SP-104.md#0\nизвлечение 39/92: procedure_SP-105.md#0\nизвлечение 40/92: procedure_SP-106.md#0\nизвлечение 41/92: procedure_SP-107.md#0\nизвлечение 42/92: procedure_SP-108.md#0\nизвлечение 43/92: procedure_SP-109.md#0\nизвлечение 44/92: procedure_SP-110.md#0\nизвлечение 45/92: procedure_SP-111.md#0\nизвлечение 46/92: procedure_SP-112.md#0\nизвлечение 47/92: procedure_SP-113.md#0\nизвлечение 48/92: procedure_SP-114.md#0\nизвлечение 49/92: procedure_SP-115.md#0\nизвлечение 50/92: procedure_SP-116.md#0\nизвлечение 51/92: procedure_SP-117.md#0\nизвлечение 52/92: procedure_SP-118.md#0\nизвлечение 53/92: report_R-2025-001.md#0\nизвлечение 54/92: report_R-2025-002.md#0\nизвлечение 55/92: report_R-2025-003.md#0\nизвлечение 56/92: report_R-2025-004.md#0\nизвлечение 57/92: report_R-2025-005.md#0\nизвлечение 58/92: report_R-2025-006.md#0\nизвлечение 59/92: report_R-2025-007.md#0\nизвлечение 60/92: report_R-2025-008.md#0\nизвлечение 61/92: report_R-2025-009.md#0\nизвлечение 62/92: report_R-2025-010.md#0\nизвлечение 63/92: report_R-2025-011.md#0\nизвлечение 64/92: report_R-2025-012.md#0\nизвлечение 65/92: report_R-2025-013.md#0\nизвлечение 66/92: report_R-2025-014.md#0\nизвлечение 67/92: report_R-2025-015.md#0\nизвлечение 68/92: report_R-2025-016.md#0\nизвлечение 69/92: report_R-2025-017.md#0\nизвлечение 70/92: report_R-2025-018.md#0\nизвлечение 71/92: report_R-2025-019.md#0\nизвлечение 72/92: report_R-2025-020.md#0\nизвлечение 73/92: report_R-2025-021.md#0\nизвлечение 74/92: report_R-2025-022.md#0\nизвлечение 75/92: report_R-2025-023.md#0\nизвлечение 76/92: report_R-2025-024.md#0\nизвлечение 77/92: report_R-2025-025.md#0\nизвлечение 78/92: report_R-2025-026.md#0\nизвлечение 79/92: report_R-2025-027.md#0\nизвлечение 80/92: report_R-2025-028.md#0\nизвлечение 81/92: report_R-2025-029.md#0\nизвлечение 82/92: report_R-2025-030.md#0\nизвлечение 83/92: report_R-2025-031.md#0\nизвлечение 84/92: report_R-2025-032.md#0\nизвлечение 85/92: report_R-2025-033.md#0\nизвлечение 86/92: report_R-2025-034.md#0\nизвлечение 87/92: report_R-2025-035.md#0\nизвлечение 88/92: report_R-2025-036.md#0\nизвлечение 89/92: report_R-2025-037.md#0\nизвлечение 90/92: report_R-2025-038.md#0\nизвлечение 91/92: report_R-2025-039.md#0\nизвлечение 92/92: report_R-2025-040.md#0\nсводка сообщества 0: узлов 18\nсводка сообщества 1: узлов 14\nсводка сообщества 2: узлов 14\nсводка сообщества 3: узлов 20\nсводка сообщества 4: узлов 13\nсводка сообщества 5: узлов 9\nсводка сообщества 6: узлов 17\nсводка сообщества 7: узлов 13\nиндекс готов: {\"chunks\": 92, \"nodes\": 118, \"edges\": 269, \"communities\": 8, \"dropped\": 74, \"conflicts\": 0, \"llm\": {\"calls\": 138, \"cache_hits\": 138, \"prompt_tokens\": 172764, \"completion_tokens\": 48278}}\n"
+    },
+    {
+      "command": [
+        "make",
+        "eval-all",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 1.95,
+      "output": "uv run sh -c 'for mode in baseline local global agent; do python -m assistant eval --mode $mode || exit 1; done'\nbaseline: верных ответов 0.50 (local 1.00, multihop 0.57, global 0.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 1.0\nlocal: верных ответов 0.46 (local 0.80, multihop 0.43, global 0.25, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 0.9\nglobal: верных ответов 0.54 (local 0.80, multihop 0.29, global 1.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 7.7\nagent: верных ответов 0.71 (local 0.60, multihop 0.43, global 0.75, tool 1.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 5.1\n"
+    },
+    {
+      "command": [
+        "make",
+        "eval-extraction",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 0.46,
+      "output": "uv run python -m assistant eval-extraction\nизвлечение: связи Precision 0.97, Recall 0.96, отброшено проверками 7\n"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "/content/check_order_v3.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.77,
+      "output": "CONFIRMATION_AND_REAL_ORDER_VERIFIED {\"order_id\": \"SO-000001\", \"part_id\": \"P-2054C\", \"warehouse\": \"Москва\", \"qty\": 2, \"model\": \"BZ-120\", \"status\": \"created\"}\n"
+    }
+  ],
+  "equal_to_original": {
+    "graph.json": true,
+    "communities.json": true,
+    "eval_baseline.json": true,
+    "eval_extraction.json": true,
+    "eval_local.json": true,
+    "eval_global.json": true,
+    "eval_agent.json": true,
+    "erp-confirmation-v3.json": true,
+    "index_stats_excluding_cache_hits": true
+  }
+}

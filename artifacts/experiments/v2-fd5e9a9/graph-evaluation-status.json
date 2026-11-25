@@ -1,0 +1,42 @@
+{
+  "stages": [
+    {
+      "stage": "index",
+      "started": 1795601247.5129967,
+      "state": "completed",
+      "exit_code": 0,
+      "seconds": 615.2
+    },
+    {
+      "stage": "extraction",
+      "started": 1795601862.7405777,
+      "state": "completed",
+      "exit_code": 0,
+      "seconds": 0.5
+    },
+    {
+      "stage": "local",
+      "started": 1795601863.1940653,
+      "state": "completed",
+      "exit_code": 0,
+      "seconds": 26.5
+    },
+    {
+      "stage": "global",
+      "started": 1795601889.686449,
+      "state": "completed",
+      "exit_code": 0,
+      "seconds": 173.9
+    },
+    {
+      "stage": "agent",
+      "started": 1795602063.5965605,
+      "state": "completed",
+      "exit_code": 0,
+      "seconds": 69.7
+    }
+  ],
+  "base_commit": "a588beb09528e32eb5dbcd760d099b2e6804420e",
+  "code_commit": "7b5620e7eef58667a81bb6daf3164dd94421bd75",
+  "code_commit_recorded_after_start": true
+}

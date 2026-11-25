@@ -1,0 +1,10 @@
+{
+  "state": "interrupted_for_direction_fix",
+  "code_commit": "cb784c469f9b55b4436a1582a97f24c9f7736326",
+  "completed": [
+    "index",
+    "extraction",
+    "local"
+  ],
+  "complete_evaluation": false
+}

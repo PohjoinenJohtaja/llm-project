@@ -1,0 +1,55 @@
+{
+  "method": "Compare explicitly listed manual inventory rows with graph edges; no changes to graph",
+  "expected_relations": 288,
+  "present": 280,
+  "missing": [
+    [
+      "manual_AR-320.md",
+      "Model:AR-320",
+      "HAS_PART",
+      "Part:P-1122"
+    ],
+    [
+      "manual_AR-320.md",
+      "Model:AR-320",
+      "HAS_PART",
+      "Part:P-1126"
+    ],
+    [
+      "manual_AR-320.md",
+      "Model:AR-320",
+      "HAS_PART",
+      "Part:P-1142"
+    ],
+    [
+      "manual_BZ-210.md",
+      "Model:BZ-210",
+      "HAS_PART",
+      "Part:P-2122"
+    ],
+    [
+      "manual_BZ-210.md",
+      "Model:BZ-210",
+      "HAS_PART",
+      "Part:P-2126"
+    ],
+    [
+      "manual_BZ-210.md",
+      "Model:BZ-210",
+      "HAS_PART",
+      "Part:P-2146"
+    ],
+    [
+      "manual_GS-420.md",
+      "Model:GS-420",
+      "HAS_PART",
+      "Part:P-3014"
+    ],
+    [
+      "manual_GS-420.md",
+      "Model:GS-420",
+      "HAS_PART",
+      "Part:P-3018"
+    ]
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "code_commit": "7b5620e7eef58667a81bb6daf3164dd94421bd75",
+  "code_commit": "e3a7cc6bf3162b38cf22150e56be4a1a4a1f0474",
   "python": "Python 3.11.17",
   "ollama": {
     "version": "0.15.4"
@@ -8,22 +8,25 @@
   "context_length": 16384,
   "llm_model": "qwen3:4b-instruct-2507-q4_K_M",
   "embed_model": "bge-m3-cpu",
-  "cache_files": 1363,
+  "cache_files": 2024,
   "validated_files": {
-    "graph.json": "c998287df0e9b5f2c115835c34b62b73f675de4a2d444767a83d7433956a7b60",
-    "communities.json": "2211246abbcc6562f37480f70c87277f3f51434420dee8792b4ada23742ae831",
-    "index_stats.json": "ee54c6a21cfd7c0086e0dd5cab0ecd49fa5903b6f67e1548fb01da5f7f257d72",
+    "graph.json": "799503e56a3267fde1c5c237fd44f99a790407bf37bd843891e9ee719f45191a",
+    "communities.json": "711283a2f767c82c935bf700f5f639a3f5ddd30e98b145dca0e8055434fd73e4",
+    "index_stats.json": "c05a3cbeaa326e607c0c549ab7f941e53722f3527866ab400eaf6ac6b214cf77",
     "eval_baseline.json": "2a23bea8bf6051ee1eec3a1a7f71d7fc1069621220ee8a005f739468048b8305",
-    "eval_extraction.json": "3bd5d4bb8ca3370d86e3096f9807c4739c507389270ba632828ca3c3cb27be5f",
-    "eval_local.json": "192ca1a6ef98b03798f9aea398d011fcfbec73dff9f09cbc8c92bfc9b0147b79",
-    "eval_global.json": "7d7244477d968f41ae7e45387ce2abb14e4c31c38ebb373aee63b6f461467f9e",
-    "eval_agent.json": "1c7cbf1869e7b3d93f8d6e5d229e3b6b32eb6b99b23a0d36879f651e86da5a66"
+    "eval_extraction.json": "a2c884e2deb4b9510250f3e8ab58118183920edfb06fd77b1b8fcf9f31180d45",
+    "eval_local.json": "1d3bc67edebef519ab66137a98acb53bc37eceb1b8305deee6454cba235ce56e",
+    "eval_global.json": "4e2d0e20f4005f68e39d65cca9f43e60d082d7836ad0dfdadf46cd3e8a265842",
+    "eval_agent.json": "a68fd2ecda1b78a7ae3d101e4a1b1315d954de8dadd1083a5675a307bbcb8078"
   },
-  "tests": "155 passed",
+  "tests": "164 passed",
   "lint": "All checks passed",
-  "source_manifest": "v2-source-manifest.json",
-  "reproducibility": "reproducibility-v2.json",
-  "previous_experiment": "experiments/v1-a588beb",
+  "source_manifest": "v3-source-manifest.json",
+  "reproducibility": "reproducibility-v3.json",
+  "previous_experiment": "experiments/v2-fd5e9a9",
   "baseline_context_length": 4096,
-  "docker_verified": false
+  "docker_verified": false,
+  "recorded_utc": "2026-11-25T11:14:11.312366+00:00",
+  "erp_confirmation": "erp-confirmation-v3.json",
+  "inventory_coverage": "inventory-coverage-v3.json"
 }

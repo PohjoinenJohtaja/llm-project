@@ -1,0 +1,88 @@
+{
+  "code_commit": "19a4e70e7d640839218a85cde3f3d7e4202fe080",
+  "state": "completed",
+  "stages": [
+    {
+      "stage": "index",
+      "state": "completed",
+      "command": [
+        "make",
+        "index",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 94.38
+    },
+    {
+      "stage": "inventory-audit",
+      "state": "completed",
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "/content/audit_inventory_v3.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.47
+    },
+    {
+      "stage": "extraction",
+      "state": "completed",
+      "command": [
+        "make",
+        "eval-extraction",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 0.44
+    },
+    {
+      "stage": "agent",
+      "state": "completed",
+      "command": [
+        "make",
+        "eval",
+        "MODE=agent",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 63.33
+    },
+    {
+      "stage": "confirmation",
+      "state": "completed",
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "/content/check_order_v3.py"
+      ],
+      "exit_code": 0,
+      "seconds": 3.2
+    },
+    {
+      "stage": "local",
+      "state": "completed",
+      "command": [
+        "make",
+        "eval",
+        "MODE=local",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 23.97
+    },
+    {
+      "stage": "global",
+      "state": "completed",
+      "command": [
+        "make",
+        "eval",
+        "MODE=global",
+        "RUN=uv run"
+      ],
+      "exit_code": 0,
+      "seconds": 113.94
+    }
+  ]
+}
