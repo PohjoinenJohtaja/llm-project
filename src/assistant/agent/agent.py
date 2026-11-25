@@ -114,6 +114,10 @@ def run_agent(
     erp_failed = False
     corrections = 0
     order_ids: list[str] = []
+    order_requested = bool(re.search(r"\b(?:оформи(?:те)?|создай(?:те)?|закажи(?:те)?)\b", question.casefold()))
+    if re.search(r"\bне\s+(?:оформи|создай|закажи)", question.casefold()):
+        order_requested = False
+    order_reminded = False
 
     def finish(answer: str, **kwargs) -> AgentResult:
         return AgentResult(answer, steps=steps, sources=sorted(sources), **kwargs)
@@ -122,6 +126,37 @@ def run_agent(
         response = llm.chat(messages, tools=TOOL_SCHEMAS)
         messages.append(response.as_message())
         if not response.tool_calls:
+            claims_order = bool(
+                re.search(
+                    r"заказ.{0,40}(?:оформлен|создан)|(?:оформил|создал|оформила|создала).{0,40}заказ",
+                    response.content.casefold(),
+                )
+            )
+            if re.search(r"не\s+(?:создан|оформлен)", response.content.casefold()):
+                claims_order = False
+            known_part = any(code.startswith("P-") for code in find_codes(evidence))
+            unfinished_order = (
+                order_requested and bool(_quantities(question)) and known_part and not refused and not erp_failed
+            )
+            if not order_ids and (claims_order or unfinished_order):
+                if order_reminded:
+                    return finish("Заказ не создан: агент не передал корректный запрос на создание заказа.")
+                order_reminded = True
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": (
+                            "Заказ ещё НЕ создан. Нельзя утверждать обратное без успешного create_service_order. "
+                            + (
+                                "Пользователь просит заказ: вызови create_service_order с подтверждённой деталью, "
+                                "моделью, складом и указанным количеством; система сама обработает подтверждение."
+                                if unfinished_order
+                                else "Исправь ответ и не заявляй о создании заказа."
+                            )
+                        ),
+                    }
+                )
+                continue
             if not _grounded(response.content, evidence) or not _amounts_grounded(response.content, question, steps):
                 if corrections:
                     return finish("В базе знаний не найдено подтверждения фактов ответа.", refused=True)

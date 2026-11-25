@@ -92,3 +92,28 @@ def test_failed_tool_result_cannot_authorize_a_new_part():
     }
     result = run_agent("Найди деталь для AR-210", llm, tools)
     assert not calls and result.steps[1].error
+
+
+def test_false_order_claim_is_corrected_to_confirmation_without_side_effects():
+    calls = []
+    args = {"part_id": "P-1042B", "warehouse": "Казань", "qty": 2, "model": "AR-210"}
+    llm = FakeLLM(["Заказ на 2 штуки оформлен.", request("create_service_order", **args)])
+    result = run_agent(
+        "Оформи заказ: 2 штуки P-1042B, AR-210, Казань", llm, {"create_service_order": lambda **kw: calls.append(kw)}
+    )
+    assert result.needs_confirmation and result.pending_action["args"] == args
+    assert not calls and "оформлен" not in result.answer
+
+
+def test_repeated_false_order_claim_is_not_presented_as_success():
+    llm = FakeLLM(["Заказ создан.", "Заказ оформлен."])
+    result = run_agent("Закажи 2 штуки P-1042B для AR-210, Казань", llm, {})
+    assert result.answer.startswith("Заказ не создан")
+    assert not result.needs_confirmation
+
+
+def test_advice_request_cannot_become_an_order_via_a_false_claim():
+    llm = FakeLLM(["Заказ оформлен.", "Заказ не создан."])
+    result = run_agent("Какая цена P-1042B?", llm, {})
+    assert result.answer == "Заказ не создан."
+    assert not result.steps
