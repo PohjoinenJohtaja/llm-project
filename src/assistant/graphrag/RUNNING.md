@@ -2,7 +2,9 @@
 
 [Обзор решения](PROJECT.md) · [Единая инструкция Docker](CLEAN_DOCKER.md) · [Указатель результатов](ARTIFACTS.md)
 
-Вычисления выполняются в Google Colab с Tesla T4; установка ПО на ПК не нужна.
+Исходные прогоны выполнены в Google Colab с Tesla T4; воспроизведение через
+Docker проверено в GitHub Codespaces на CPU. Ни один вариант не требует
+установки ПО на ПК. Этот документ описывает вариант Colab.
 notebooks/colab_baseline_execution.ipynb — журнал первого запуска с диагностикой,
 а не команда «выполнить всё»: в нём сохранены и неуспешные попытки.
 
@@ -49,7 +51,8 @@ make eval-all RUN="uv run"
 
 Явный ARGS включает дополнительные тесты внутри разрешённых студенческих каталогов.
 Исходные Makefile, pyproject.toml, тесты задания и инфраструктура не изменялись.
-В Docker используйте те же цели без RUN; адрес Ollama выбирается по docs/setup.md.
+Полная последовательность Docker и настройки адреса Ollama приведены в
+[CLEAN_DOCKER.md](CLEAN_DOCKER.md).
 
 Первый эксперимент сохранён в artifacts/experiments/v1-a588beb/.
 Текущие graph.json, communities.json, index_stats.json и eval_*.json лежат в artifacts/.
