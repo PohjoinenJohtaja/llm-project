@@ -1,0 +1,2 @@
+uv run python -m assistant eval-extraction
+извлечение: связи Precision 0.97, Recall 0.93, отброшено проверками 5

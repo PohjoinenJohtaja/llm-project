@@ -1,0 +1,65 @@
+CHECK ['uv', 'sync', '--frozen', '--python', '3.11'] EXIT 0 Using CPython 3.11.17
+Creating virtual environment at: .venv
+Prepared 1 package in 523ms
+Installed 24 packages in 53ms
+ + annotated-types==0.8.0
+ + anyio==4.15.1
+ + assistant==0.1.0 (from file:///content/llm-project-repro-v2)
+ + certifi==2026.7.22
+ + click==8.5.0
+ + fastapi==0.115.6
+ + h11==0.16.0
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + idna==3.20
+ + iniconfig==2.3.1
+ + networkx==3.6.1
+ + numpy==2.4.6
+ + packaging==26.3
+ + pluggy==1.6.0
+ + pydantic==2.14.0
+ + pydantic-core==2.50.0
+ + pygments==2.21.0
+ + pytest==8.4.2
+ + ruff==0.17.0
+ + starlette==0.41.3
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + uvicorn==0.34.0
+
+CHECK ['make', 'test', 'RUN=uv run', 'ARGS=tests erp/tests src/assistant'] EXIT 0 uv run pytest -q tests erp/tests src/assistant
+........................................................................ [ 46%]
+........................................................................ [ 92%]
+...........                                                              [100%]
+155 passed in 2.25s
+
+CHECK ['make', 'lint', 'RUN=uv run'] EXIT 0 uv run ruff check .
+All checks passed!
+
+CHECK ['make', 'index', 'RUN=uv run'] EXIT 0 2025-034.md#0
+извлечение 87/92: report_R-2025-035.md#0
+извлечение 88/92: report_R-2025-036.md#0
+извлечение 89/92: report_R-2025-037.md#0
+извлечение 90/92: report_R-2025-038.md#0
+извлечение 91/92: report_R-2025-039.md#0
+извлечение 92/92: report_R-2025-040.md#0
+сводка сообщества 0: узлов 18
+сводка сообщества 1: узлов 14
+сводка сообщества 2: узлов 14
+сводка сообщества 3: узлов 20
+сводка сообщества 4: узлов 13
+сводка сообщества 5: узлов 9
+сводка сообщества 6: узлов 17
+сводка сообщества 7: узлов 13
+индекс готов: {"chunks": 92, "nodes": 118, "edges": 241, "communities": 8, "dropped": 54, "conflicts": 0, "llm": {"calls": 100, "cache_hits": 100, "prompt_tokens": 119116, "completion_tokens": 37262}}
+
+CHECK ['make', 'eval-all', 'RUN=uv run'] EXIT 0 v run sh -c 'for mode in baseline local global agent; do python -m assistant eval --mode $mode || exit 1; done'
+baseline: верных ответов 0.50 (local 1.00, multihop 0.57, global 0.00, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 1.0
+local: верных ответов 0.42 (local 0.80, multihop 0.29, global 0.25, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 0.8
+global: верных ответов 0.38 (local 0.20, multihop 0.29, global 0.75, tool 0.00, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 7.6
+agent: верных ответов 0.54 (local 0.60, multihop 0.29, global 0.75, tool 0.40, refusal 1.00), выдуманные факты 0.00, вызовов модели на вопрос 5.2
+
+CHECK ['make', 'eval-extraction', 'RUN=uv run'] EXIT 0 uv run python -m assistant eval-extraction
+извлечение: связи Precision 0.97, Recall 0.93, отброшено проверками 5
+
+REPRODUCIBLE_ALL_FILES {'graph.json': True, 'communities.json': True, 'eval_baseline.json': True, 'eval_extraction.json': True, 'eval_local.json': True, 'eval_global.json': True, 'eval_agent.json': True, 'index_stats_excluding_cache_hits': True}
