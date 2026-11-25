@@ -45,7 +45,7 @@ def _parse(content: str) -> dict:
     return data
 
 
-def extract_chunk(chunk: Chunk, llm: LLMClient) -> ExtractionResult:
+def _extract_single(chunk: Chunk, llm: LLMClient) -> ExtractionResult | None:
     """Extract, canonicalize and ground facts; retry malformed JSON once."""
     vocab = vocabulary()
     example = {
@@ -120,7 +120,7 @@ def extract_chunk(chunk: Chunk, llm: LLMClient) -> ExtractionResult:
             break
         except (ValueError, TypeError):
             if attempt == 1:
-                return result
+                return None
             messages = messages + [
                 {"role": "assistant", "content": response.content or ""},
                 {"role": "user", "content": "Исправь формат: нужен JSON строго по схеме."},
@@ -158,4 +158,34 @@ def extract_chunk(chunk: Chunk, llm: LLMClient) -> ExtractionResult:
             result.relations.append(relation)
             seen.add(relation)
     result.entities = list(entities.values())
+    return result
+
+
+def extract_chunk(chunk: Chunk, llm: LLMClient) -> ExtractionResult:
+    """Keep long part inventories small enough for complete LLM extraction.
+
+    Every batch retains the document context and original source identifier.
+    Relations still come exclusively from the schema-validated model response.
+    """
+    lines = chunk.text.splitlines()
+    inventory = [
+        i
+        for i, line in enumerate(lines)
+        if line.lstrip().startswith(("- ", "* ", "|")) and any(code.startswith("P-") for code in find_codes(line))
+    ]
+    if len(inventory) <= 3:
+        return _extract_single(chunk, llm) or ExtractionResult(chunk.chunk_id, chunk.doc_id)
+    result = ExtractionResult(chunk.chunk_id, chunk.doc_id)
+    entities, relations = {}, set()
+    for offset in range(0, len(inventory), 3):
+        keep = set(inventory[offset : offset + 3])
+        text = "\n".join(line for i, line in enumerate(lines) if i not in inventory or i in keep)
+        partial = _extract_single(Chunk(chunk.chunk_id, chunk.doc_id, text), llm)
+        if partial is None:
+            return ExtractionResult(chunk.chunk_id, chunk.doc_id)
+        result.dropped += partial.dropped
+        entities.update((entity.node_id, entity) for entity in partial.entities)
+        relations.update(partial.relations)
+    result.entities = list(entities.values())
+    result.relations = sorted(relations, key=lambda r: (r.subject.node_id, r.type, r.object.node_id))
     return result
