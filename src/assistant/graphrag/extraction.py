@@ -45,7 +45,7 @@ def _parse(content: str) -> dict:
     return data
 
 
-def _extract_single(chunk: Chunk, llm: LLMClient) -> ExtractionResult | None:
+def _extract_single(chunk: Chunk, llm: LLMClient, *, check_directions: bool = False) -> ExtractionResult | None:
     """Extract, canonicalize and ground facts; retry malformed JSON once."""
     vocab = vocabulary()
     example = {
@@ -117,6 +117,26 @@ def _extract_single(chunk: Chunk, llm: LLMClient) -> ExtractionResult | None:
         response = llm.chat(messages, json_schema=EXTRACTION_SCHEMA, max_tokens=8192)
         try:
             data = _parse(response.content)
+            wrong = [
+                row
+                for row in data["relations"]
+                if RELATION_SIGNATURES[row["type"]] != (row["subject_type"], row["object_type"])
+            ]
+            if check_directions and wrong and attempt == 0:
+                result.dropped += len(wrong)
+                messages = messages + [
+                    {"role": "assistant", "content": response.content},
+                    {
+                        "role": "user",
+                        "content": (
+                            "Исправь направления связей по схеме и верни полный JSON. "
+                            "HAS_PART всегда Model -> Part: модель содержит деталь, никогда Part -> Model. "
+                            "Не удаляй подтверждённые строки состава узлов. Ошибочные связи: "
+                            + json.dumps(wrong, ensure_ascii=False)
+                        ),
+                    },
+                ]
+                continue
             break
         except (ValueError, TypeError):
             if attempt == 1:
@@ -180,7 +200,7 @@ def extract_chunk(chunk: Chunk, llm: LLMClient) -> ExtractionResult:
     for offset in range(0, len(inventory), 3):
         keep = set(inventory[offset : offset + 3])
         text = "\n".join(line for i, line in enumerate(lines) if i not in inventory or i in keep)
-        partial = _extract_single(Chunk(chunk.chunk_id, chunk.doc_id, text), llm)
+        partial = _extract_single(Chunk(chunk.chunk_id, chunk.doc_id, text), llm, check_directions=True)
         if partial is None:
             return ExtractionResult(chunk.chunk_id, chunk.doc_id)
         result.dropped += partial.dropped

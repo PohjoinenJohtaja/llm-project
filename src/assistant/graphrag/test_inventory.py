@@ -64,3 +64,44 @@ def test_twice_malformed_inventory_batch_discards_partial_chunk():
     result = extract_chunk(chunk, llm)
     assert result.entities == [] and result.relations == []
     assert len(llm.requests) == 3
+
+
+def test_inventory_wrong_direction_is_retried_then_validated():
+    parts = ["P-9001", "P-9002", "P-9003", "P-9004"]
+    chunk = Chunk(
+        "inventory.md#0", "inventory.md", "# AR-210\n" + "\n".join(f"- компрессор — деталь {p}" for p in parts)
+    )
+    wrong = json.loads(response(parts[:3]))
+    wrong["relations"][0] = {
+        "subject_type": "Part",
+        "subject": "P-9001",
+        "type": "HAS_PART",
+        "object_type": "Model",
+        "object": "AR-210",
+    }
+    llm = FakeLLM([json.dumps(wrong), response(parts[:3]), response(parts[3:])])
+    result = extract_chunk(chunk, llm)
+    assert {r.object.name for r in result.relations if r.type == "HAS_PART"} == set(parts)
+    assert result.dropped == 1
+    assert len(llm.requests) == 3
+    assert "Model -> Part" in llm.requests[1]["messages"][-1]["content"]
+
+
+def test_inventory_second_wrong_direction_is_dropped_without_more_retries():
+    parts = ["P-9001", "P-9002", "P-9003", "P-9004"]
+    chunk = Chunk(
+        "inventory.md#0", "inventory.md", "# AR-210\n" + "\n".join(f"- компрессор — деталь {p}" for p in parts)
+    )
+    wrong = json.loads(response(parts[:3]))
+    wrong["relations"][0] = {
+        "subject_type": "Part",
+        "subject": "P-9001",
+        "type": "HAS_PART",
+        "object_type": "Model",
+        "object": "AR-210",
+    }
+    llm = FakeLLM([json.dumps(wrong), json.dumps(wrong), response(parts[3:])])
+    result = extract_chunk(chunk, llm)
+    assert all(r.matches_schema() for r in result.relations)
+    assert "P-9001" not in {r.object.name for r in result.relations if r.type == "HAS_PART"}
+    assert len(llm.requests) == 3
